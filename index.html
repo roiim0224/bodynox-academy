@@ -99,45 +99,36 @@
 
       <div class="hero__visual reveal">
         <div class="hero__frame">
-          <img class="hero__photo" src="./assets/img/hero-teaching.jpg"
-               alt="교육생의 어깨 움직임을 직접 평가하며 지도하는 강사"
-               width="1500" height="1000" fetchpriority="high" />
+          <div class="slider" id="heroSlider" aria-roledescription="carousel" aria-label="교육 현장 사진">
+            <div class="slider__track" id="heroTrack">
+              <figure class="slider__slide">
+                <img class="hero__photo" src="./assets/img/hero-teaching.jpg"
+                     alt="교육생의 어깨 움직임을 직접 평가하며 지도하는 강사"
+                     width="1500" height="1000" fetchpriority="high" />
+              </figure>
+              <figure class="slider__slide">
+                <img class="hero__photo" src="./assets/img/scene-classroom.jpg"
+                     alt="스튜디오에 모여 해부학 이론 강의를 듣는 교육생들"
+                     width="1500" height="1000" />
+              </figure>
+              <figure class="slider__slide">
+                <img class="hero__photo" src="./assets/img/scene-lecture.jpg"
+                     alt="해부학 자료와 골격 모형을 활용해 강의하는 강사"
+                     width="1100" height="733" loading="lazy" />
+              </figure>
+              <figure class="slider__slide">
+                <img class="hero__photo" src="./assets/img/scene-handson.jpg"
+                     alt="교육생들이 둘러선 가운데 진행되는 촉진 실습"
+                     width="1100" height="733" loading="lazy" />
+              </figure>
+            </div>
+            <div class="slider__dots" id="heroDots" role="tablist" aria-label="사진 선택"></div>
+          </div>
         </div>
         <div class="hero__badge">
           <img src="./assets/img/bpm-logo.png"
                alt="BPM 바디녹스 필라테스 메소드 로고" width="650" height="291" />
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ GALLERY ============ -->
-  <section class="section gallery" id="gallery">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">EDUCATION SCENE</p>
-        <h2 class="section__title">교육 현장</h2>
-        <p class="section__desc">
-          이론 강의부터 촉진 · 평가 실습까지, 실제 BPM 과정에서의 모습입니다.
-        </p>
-      </div>
-
-      <div class="gallery__grid reveal">
-        <figure class="gallery__item gallery__item--lg">
-          <img src="./assets/img/scene-classroom.jpg"
-               alt="스튜디오에 모여 해부학 이론 강의를 듣는 교육생들"
-               width="1500" height="1000" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="gallery__item">
-          <img src="./assets/img/scene-lecture.jpg"
-               alt="해부학 자료와 골격 모형을 활용해 강의하는 강사"
-               width="1100" height="733" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="gallery__item">
-          <img src="./assets/img/scene-handson.jpg"
-               alt="교육생들이 둘러선 가운데 진행되는 촉진 실습"
-               width="1100" height="733" loading="lazy" decoding="async" />
-        </figure>
       </div>
     </div>
   </section>

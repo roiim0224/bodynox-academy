@@ -114,6 +114,122 @@
     sections.forEach(function (s) { navObserver.observe(s.el); });
   }
 
+  /* ---------- 히어로 사진 슬라이더 (3초 자동 전환) ---------- */
+  (function heroSlider() {
+    var track = document.getElementById('heroTrack');
+    var dotsBox = document.getElementById('heroDots');
+    if (!track) return;
+
+    var slides = Array.prototype.slice.call(track.children);
+    if (slides.length < 2) return;
+
+    var INTERVAL = 3000;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 마지막 -> 처음이 끊기지 않도록 첫 장을 복제해 뒤에 붙인다
+    var clone = slides[0].cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    var cloneImg = clone.querySelector('img');
+    if (cloneImg) { cloneImg.setAttribute('alt', ''); cloneImg.removeAttribute('fetchpriority'); }
+    track.appendChild(clone);
+
+    var index = 0;
+    var timer = null;
+    var dots = [];
+
+    function render(animate) {
+      track.style.transition = animate ? '' : 'none';
+      track.style.transform = 'translate3d(' + (-index * 100) + '%, 0, 0)';
+      var active = index % slides.length;
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === active);
+        d.setAttribute('aria-selected', i === active ? 'true' : 'false');
+      });
+    }
+
+    function next() {
+      index += 1;
+      render(true);
+    }
+
+    function goTo(i) {
+      index = i;
+      render(true);
+      restart();
+    }
+
+    // 복제 슬라이드에 도착하면 애니메이션 없이 처음으로 되돌린다
+    track.addEventListener('transitionend', function (e) {
+      if (e.propertyName !== 'transform') return;
+      if (index === slides.length) {
+        index = 0;
+        render(false);
+        void track.offsetWidth; // 리플로우로 transition 복구
+        track.style.transition = '';
+      }
+    });
+
+    function start() {
+      if (reduceMotion || timer) return;
+      timer = window.setInterval(next, INTERVAL);
+    }
+    function stop() {
+      window.clearInterval(timer);
+      timer = null;
+    }
+    function restart() { stop(); start(); }
+
+    // 인디케이터
+    if (dotsBox) {
+      slides.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'slider__dot' + (i === 0 ? ' is-active' : '');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', (i + 1) + '번째 사진');
+        b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        b.addEventListener('click', function () { goTo(i); });
+        dotsBox.appendChild(b);
+        dots.push(b);
+      });
+    }
+
+    // 마우스를 올리거나 포커스가 들어오면 멈춤
+    var slider = document.getElementById('heroSlider');
+    if (slider) {
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      slider.addEventListener('focusin', stop);
+      slider.addEventListener('focusout', start);
+
+      // 모바일 스와이프
+      var startX = null;
+      slider.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+        stop();
+      }, { passive: true });
+      slider.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) next();
+          else goTo(index === 0 ? slides.length - 1 : index - 1);
+        }
+        startX = null;
+        start();
+      });
+    }
+
+    // 다른 탭에 있을 때는 돌리지 않는다
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
+    });
+
+    render(false);
+    track.style.transition = '';
+    start();
+  })();
+
   /* ---------- 푸터 연도 ---------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
