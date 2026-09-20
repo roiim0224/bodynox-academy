@@ -380,7 +380,7 @@ table { border-collapse: collapse; width: 100%; }
   left: 18px;
   bottom: 16px;
   z-index: 3;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .5));
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, .95));
 }
 .hero__badge img { width: 124px; height: auto; }
 
@@ -423,14 +423,14 @@ table { border-collapse: collapse; width: 100%; }
 }
 .slider__slide { flex: 0 0 100%; margin: 0; min-width: 0; }
 
-/* 사진 아래쪽을 살짝 어둡게 — 흰 로고와 인디케이터가 항상 읽히도록 */
+/* 사진 아래쪽을 밝게 풀어줌 — 컬러 로고가 어떤 사진 위에서도 읽히도록 */
 .slider::after {
   content: "";
   position: absolute;
   inset: auto 0 0 0;
-  height: 46%;
+  height: 38%;
   z-index: 1;
-  background: linear-gradient(to top, rgba(26, 12, 17, .72) 0%, rgba(26, 12, 17, .34) 48%, rgba(26, 12, 17, 0) 100%);
+  background: linear-gradient(to top, rgba(255, 252, 250, .94) 0%, rgba(255, 252, 250, .62) 42%, rgba(255, 252, 250, 0) 100%);
   pointer-events: none;
 }
 
@@ -443,7 +443,7 @@ table { border-collapse: collapse; width: 100%; }
   gap: 7px;
   padding: 7px 10px;
   border-radius: 999px;
-  background: rgba(42, 23, 30, .32);
+  background: rgba(42, 23, 30, .42);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
