@@ -376,13 +376,13 @@ table { border-collapse: collapse; width: 100%; }
 }
 .hero__badge {
   position: absolute;
-  left: -6px;
-  bottom: -18px;
+  left: 12px;
+  bottom: 12px;
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   border-radius: var(--radius);
   padding: 16px 22px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 .hero__badge img { width: 116px; height: auto; }
 
@@ -959,7 +959,7 @@ table { border-collapse: collapse; width: 100%; }
   .hero__lead { font-size: 16.5px; }
   .hero__stats { gap: 24px; }
   .hero__photo { aspect-ratio: 5 / 4; }
-  .hero__badge { left: -32px; bottom: -22px; padding: 18px 26px; }
+  .hero__badge { left: 20px; bottom: 20px; padding: 16px 22px; }
 
   /* grids */
   .grid--3 { grid-template-columns: repeat(3, 1fr); gap: 24px; }
