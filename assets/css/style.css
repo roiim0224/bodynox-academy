@@ -374,17 +374,15 @@ table { border-collapse: collapse; width: 100%; }
   overflow: hidden;
   box-shadow: var(--shadow-md);
 }
+/* 사진 위에 얹히는 로고 — 흰색 버전 + 그림자로 밝은 사진에서도 보이게 */
 .hero__badge {
   position: absolute;
-  left: 12px;
-  bottom: 12px;
-  background: var(--c-surface);
-  border: 1px solid var(--c-line);
-  border-radius: var(--radius);
-  padding: 16px 22px;
-  box-shadow: var(--shadow-md);
+  left: 18px;
+  bottom: 16px;
+  z-index: 3;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .5));
 }
-.hero__badge img { width: 116px; height: auto; }
+.hero__badge img { width: 124px; height: auto; }
 
 /* ---------- Media placeholders ---------- */
 .media-placeholder {
@@ -425,8 +423,20 @@ table { border-collapse: collapse; width: 100%; }
 }
 .slider__slide { flex: 0 0 100%; margin: 0; min-width: 0; }
 
+/* 사진 아래쪽을 살짝 어둡게 — 흰 로고와 인디케이터가 항상 읽히도록 */
+.slider::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 46%;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(26, 12, 17, .72) 0%, rgba(26, 12, 17, .34) 48%, rgba(26, 12, 17, 0) 100%);
+  pointer-events: none;
+}
+
 .slider__dots {
   position: absolute;
+  z-index: 2;
   right: 14px;
   bottom: 14px;
   display: flex;
@@ -959,7 +969,8 @@ table { border-collapse: collapse; width: 100%; }
   .hero__lead { font-size: 16.5px; }
   .hero__stats { gap: 24px; }
   .hero__photo { aspect-ratio: 5 / 4; }
-  .hero__badge { left: 20px; bottom: 20px; padding: 16px 22px; }
+  .hero__badge { left: 26px; bottom: 22px; }
+  .hero__badge img { width: 150px; }
 
   /* grids */
   .grid--3 { grid-template-columns: repeat(3, 1fr); gap: 24px; }
