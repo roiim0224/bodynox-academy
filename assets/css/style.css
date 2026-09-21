@@ -607,7 +607,7 @@ table { border-collapse: collapse; width: 100%; }
   font-size: 14px;
 }
 .card__meta dt { color: var(--c-text-weak); }
-.card__meta dd { font-weight: 600; letter-spacing: -0.02em; }
+.card__meta dd { font-weight: 600; letter-spacing: -0.02em; text-align: right; }
 .card__link {
   margin-top: auto;
   padding-top: 22px;
