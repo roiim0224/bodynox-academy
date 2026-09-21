@@ -545,6 +545,64 @@ table { border-collapse: collapse; width: 100%; }
   color: var(--c-accent);
   margin-bottom: 10px;
 }
+
+/* 과정 카드 머리 영역 — 단계별로 톤을 다르게 */
+.card { overflow: hidden; }
+.card__top {
+  margin: -34px -28px 24px;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--c-line-soft);
+}
+.card__toprow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.card__step {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--c-accent);
+}
+.card__badge {
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--c-line);
+  background: rgba(255, 255, 255, .7);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--c-text-mid);
+  white-space: nowrap;
+}
+
+/* STEP 01 — 사전 온라인 */
+.card--online .card__top { background: #F4EFE9; }
+
+/* STEP 02 — 입문 자격 */
+.card--foundation .card__top {
+  background: var(--c-accent-bg);
+  border-bottom-color: #F0D5DF;
+}
+.card--foundation .card__badge {
+  border-color: #EFCCD9;
+  color: var(--c-accent-dk);
+}
+
+/* STEP 03 — 심화 자격 */
+.card--intermediate .card__top {
+  background: var(--c-dark);
+  border-bottom-color: transparent;
+}
+.card--intermediate .card__title { color: #FBF8F7; }
+.card--intermediate .card__step { color: var(--c-accent-lt); }
+.card--intermediate .card__badge {
+  background: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .22);
+  color: #EBDFE3;
+}
 .card__title {
   font-size: 23px;
   font-weight: 600;
