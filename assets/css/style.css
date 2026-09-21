@@ -585,6 +585,14 @@ table { border-collapse: collapse; width: 100%; }
   border-radius: 50%;
   background: var(--c-accent);
 }
+.card__note {
+  display: block;
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--c-text-weak);
+  letter-spacing: -0.01em;
+}
 .card__meta {
   margin-top: 24px;
   padding-top: 18px;
