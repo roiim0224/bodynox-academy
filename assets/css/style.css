@@ -622,6 +622,128 @@ table { border-collapse: collapse; width: 100%; }
 .card__link span { transition: transform .25s var(--ease); }
 .card__link:hover span { transform: translateX(4px); }
 
+/* ---------- 과정 상세 페이지 ---------- */
+.subhero {
+  padding-top: calc(var(--header-h) + 40px);
+  padding-bottom: 56px;
+  background:
+    radial-gradient(120% 90% at 85% 0%, #F7EDE7 0%, rgba(247, 237, 231, 0) 60%),
+    linear-gradient(180deg, #FEFDFB 0%, var(--c-bg) 100%);
+}
+.backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  color: var(--c-text-mid);
+  transition: color .25s var(--ease);
+}
+.backlink:hover { color: var(--c-accent-dk); }
+
+.subhero__inner { display: grid; gap: 36px; }
+.subhero__title {
+  font-size: clamp(30px, 7vw, 52px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+.subhero__lead {
+  margin-top: 18px;
+  max-width: 34em;
+  color: var(--c-text-mid);
+  font-size: 15.5px;
+  line-height: 1.9;
+}
+.subhero__actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.subhero__visual { margin: 0; }
+.subhero__visual img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.factlist {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--c-line);
+  display: grid;
+  gap: 16px;
+}
+.factlist__label {
+  display: block;
+  font-size: 12.5px;
+  color: var(--c-text-weak);
+}
+.factlist__value {
+  display: block;
+  margin-top: 4px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* 모듈 목록 */
+.modules {
+  counter-reset: module;
+  display: grid;
+  gap: 14px;
+}
+.module {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  display: grid;
+  gap: 14px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.module:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.module__step {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--c-accent);
+  margin-bottom: 10px;
+}
+.module__title {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.module__sub {
+  margin-top: 6px;
+  font-size: 14.5px;
+  color: var(--c-text-mid);
+}
+.module__body p { font-size: 14.5px; line-height: 1.85; color: var(--c-text-mid); }
+.module__todo {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--c-bg-tint);
+  font-size: 13px;
+  color: var(--c-text-weak);
+}
+
+/* 하단 CTA 밴드 */
+.cta-band { display: grid; gap: 28px; }
+.cta-band__actions { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
+.btn--outline-light {
+  background: transparent;
+  color: #F3ECEE;
+  border-color: rgba(255, 255, 255, .3);
+}
+.btn--outline-light:hover { border-color: #fff; color: #fff; }
+
 /* ---------- Schedule table ---------- */
 .table-wrap {
   background: var(--c-surface);
@@ -979,6 +1101,27 @@ table { border-collapse: collapse; width: 100%; }
   .hero__photo { aspect-ratio: 5 / 4; }
   .hero__badge { left: 26px; bottom: 22px; }
   .hero__badge img { width: 150px; }
+
+  /* 과정 상세 페이지 */
+  .subhero { padding-top: calc(var(--header-h) + 64px); padding-bottom: 88px; }
+  .subhero__inner {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 64px;
+  }
+  .factlist { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .module {
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 32px;
+  }
+  .cta-band {
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .cta-band__actions { justify-content: flex-end; }
 
   /* grids */
   .grid--3 { grid-template-columns: repeat(3, 1fr); gap: 24px; }

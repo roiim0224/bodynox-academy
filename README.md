@@ -7,7 +7,8 @@
 
 ```
 bodynox-academy/
-├─ index.html              # 전체 페이지 (모든 섹션)
+├─ index.html              # 메인 페이지 (모든 섹션)
+├─ foundation.html         # Foundation 과정 상세 페이지
 ├─ assets/
 │  ├─ css/style.css        # 디자인 토큰 + 전체 스타일
 │  ├─ js/main.js           # 모바일 메뉴, 스크롤 등장, 내비 하이라이트
