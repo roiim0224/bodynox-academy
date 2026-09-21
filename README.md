@@ -8,6 +8,7 @@
 ```
 bodynox-academy/
 ├─ index.html              # 메인 페이지 (모든 섹션)
+├─ online.html             # Online 과정 상세 페이지
 ├─ foundation.html         # Foundation 과정 상세 페이지
 ├─ intermediate.html       # Intermediate 과정 상세 페이지
 ├─ assets/
