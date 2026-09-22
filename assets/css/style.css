@@ -456,10 +456,16 @@ table { border-collapse: collapse; width: 100%; }
   transition: background-color .3s var(--ease), width .3s var(--ease);
 }
 .slider__dot.is-active { width: 18px; border-radius: 999px; background: #fff; }
-.media-placeholder--portrait {
+.media-placeholder--portrait,
+.instructor__photo {
   aspect-ratio: 4 / 5;
   max-height: 400px;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.instructor__photo {
+  width: 100%;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 /* ---------- Sections ---------- */
@@ -1114,7 +1120,8 @@ table { border-collapse: collapse; width: 100%; }
   :root { --gutter: 28px; }
   .section { padding-block: 88px; }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
-  .media-placeholder--portrait { aspect-ratio: 3 / 4; max-height: none; }
+  .media-placeholder--portrait,
+  .instructor__photo { aspect-ratio: 3 / 4; max-height: none; }
   .contact { padding: 48px 40px; }
   .career__list li { padding: 28px 0; }
 }
