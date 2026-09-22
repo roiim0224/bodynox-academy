@@ -836,6 +836,38 @@ table { border-collapse: collapse; width: 100%; }
   color: var(--c-text-weak);
 }
 
+/* 좌우 2단 구성 */
+.split { display: grid; gap: 44px; }
+.split .checklist,
+.split .goals { margin-top: 24px; margin-bottom: 0; }
+
+/* 번호가 붙는 목표 목록 */
+.goals { counter-reset: goal; display: grid; gap: 14px; }
+.goals li {
+  counter-increment: goal;
+  position: relative;
+  padding-left: 40px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--c-text-mid);
+}
+.goals li::before {
+  content: counter(goal);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-accent-bg);
+  color: var(--c-accent-dk);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 하단 CTA 밴드 */
 .cta-band { display: grid; gap: 28px; }
 .cta-band__actions { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
@@ -1025,6 +1057,7 @@ table { border-collapse: collapse; width: 100%; }
   line-height: 1.65;
   color: #D4C7CA;
 }
+.checklist--light li { color: var(--c-text-mid); }
 .checklist li::before {
   content: "";
   position: absolute;
@@ -1157,7 +1190,8 @@ table { border-collapse: collapse; width: 100%; }
 @media (min-width: 600px) {
   :root { --gutter: 28px; }
   .section { padding-block: 88px; }
-  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3,
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .media-placeholder--portrait,
   .instructor__photo { aspect-ratio: 3 / 4; max-height: none; }
   .contact { padding: 48px 40px; }
@@ -1239,6 +1273,8 @@ table { border-collapse: collapse; width: 100%; }
 
   /* grids */
   .grid--3 { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .split { grid-template-columns: 1fr 1fr; gap: 64px; }
 
   /* table -> real table */
   .schedule-table thead { display: table-header-group; }
