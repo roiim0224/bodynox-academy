@@ -1190,6 +1190,7 @@ table { border-collapse: collapse; width: 100%; }
 @media (min-width: 600px) {
   :root { --gutter: 28px; }
   .section { padding-block: 88px; }
+  .grid--2,
   .grid--3,
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .media-placeholder--portrait,
