@@ -99,6 +99,35 @@ python3 -m http.server 8000
 같은 파일명으로 덮어쓰면 레이아웃 수정 없이 교체됩니다.
 강사진 사진 자리는 아직 플레이스홀더입니다.
 
+## 사진 자리 (photo-slot) 교체 방법
+
+아직 사진이 없는 자리는 `.photo-slot` 블록으로 만들어 두었습니다.
+회색 박스 안에 **넣어야 할 파일명**이 적혀 있으니, 그 이름으로 `assets/img/`에 저장하고
+블록을 `<img>` 한 줄로 바꾸면 됩니다.
+
+```html
+<!-- 기존 -->
+<div class="photo-slot photo-slot--square">
+  <span class="photo-slot__label">센터 사진</span>
+  <span class="photo-slot__hint">assets/img/center-seoul.jpg</span>
+</div>
+
+<!-- 교체 후 -->
+<img class="photo-slot--square" src="./assets/img/center-seoul.jpg"
+     alt="바디녹스 서울역 교육센터" width="1000" height="1000" loading="lazy" />
+```
+
+`photo-slot` 종류와 권장 비율:
+
+| 클래스 | 비율 | 쓰이는 곳 |
+|---|---|---|
+| `photo-slot--wide` | 16:10 | 모집 기수 카드 대표 사진 |
+| `photo-slot--square` | 1:1 | 교육센터, 갤러리 하단 |
+| `photo-slot--portrait` | 3:4 | 강사 프로필 |
+| (기본) | 3:2 | 갤러리 |
+
+사진은 웹용으로 줄여서 넣어주세요 (가로 1200~1600px, 200~300KB 내외).
+
 ## 캐시 주의
 
 `index.html`에서 CSS·JS를 `style.css?v=2`, `main.js?v=2` 형태로 불러옵니다.
