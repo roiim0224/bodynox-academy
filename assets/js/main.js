@@ -230,6 +230,79 @@
     start();
   })();
 
+  /* ---------- 교육 신청서 (버튼으로 열고, 제출하면 닫힘) ---------- */
+  (function applyForm() {
+    var launcher = document.querySelector('.form-launcher');
+    if (!launcher) return;
+
+    var idle = document.getElementById('formIdle');
+    var panel = document.getElementById('formPanel');
+    var embed = document.getElementById('formEmbed');
+    var done = document.getElementById('formDone');
+    var openBtn = document.getElementById('formOpen');
+    var closeBtn = document.getElementById('formClose');
+    var againBtn = document.getElementById('formAgain');
+    var formUrl = launcher.getAttribute('data-form-url');
+    if (!idle || !panel || !embed || !done || !openBtn || !formUrl) return;
+
+    var frame = null;
+    var loadCount = 0;
+    var mountedAt = 0;
+
+    function mount() {
+      unmount();
+      loadCount = 0;
+      mountedAt = Date.now();
+
+      frame = document.createElement('iframe');
+      frame.title = '바디녹스 아카데미 BPM 지도자 과정 참가신청서';
+      frame.setAttribute('loading', 'eager');
+      frame.addEventListener('load', function () {
+        loadCount += 1;
+        // 첫 번째 load = 신청서 표시.
+        // 제출하면 구글폼이 응답 페이지로 이동하면서 load가 한 번 더 발생합니다.
+        // (다른 도메인이라 내용은 읽을 수 없어 이 신호로 판단합니다.)
+        if (loadCount >= 2 && Date.now() - mountedAt > 1500) finish();
+      });
+      frame.src = formUrl;
+      embed.appendChild(frame);
+    }
+
+    function unmount() {
+      if (frame && frame.parentNode) frame.parentNode.removeChild(frame);
+      frame = null;
+    }
+
+    function show(el) {
+      idle.hidden = el !== idle;
+      panel.hidden = el !== panel;
+      done.hidden = el !== done;
+    }
+
+    function openForm() {
+      show(panel);
+      mount();
+      panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+
+    function closeForm() {
+      unmount();
+      show(idle);
+      idle.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+
+    // 제출 완료: 확인 메시지를 띄우고 신청서는 닫습니다.
+    function finish() {
+      unmount();
+      show(done);
+      done.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+
+    openBtn.addEventListener('click', openForm);
+    if (closeBtn) closeBtn.addEventListener('click', closeForm);
+    if (againBtn) againBtn.addEventListener('click', openForm);
+  })();
+
   /* ---------- 푸터 연도 ---------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

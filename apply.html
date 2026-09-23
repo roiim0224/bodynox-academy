@@ -22,7 +22,7 @@
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
   />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=21" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=22" />
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
 </head>
@@ -127,18 +127,53 @@
         <p class="eyebrow">STEP 01</p>
         <h2 class="section__title">신청서 작성</h2>
         <p class="section__desc">
-          아래 신청서를 작성해 제출해 주세요.
-          제출이 완료되면 화면에 확인 메시지가 표시됩니다.
+          아래 <strong>등록 신청하기</strong> 버튼을 누르면 신청서가 열립니다.
+          작성 후 제출하시면 확인 메시지와 함께 결제 안내가 표시됩니다.
         </p>
       </div>
 
-      <div class="form-embed reveal">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOPVCgQhEqM9wEV6-THbeQvgtaMIqRTyVVUGshBLxMXCO36Q/viewform?embedded=true"
-                title="바디녹스 아카데미 BPM 지도자 과정 참가신청서"
-                loading="eager">
-          신청서를 불러오는 중입니다. 화면이 보이지 않으면
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOPVCgQhEqM9wEV6-THbeQvgtaMIqRTyVVUGshBLxMXCO36Q/viewform" target="_blank" rel="noopener noreferrer">새 창에서 신청서 열기</a>를 눌러주세요.
-        </iframe>
+      <div class="form-launcher reveal" data-form-url="https://docs.google.com/forms/d/e/1FAIpQLSeOPVCgQhEqM9wEV6-THbeQvgtaMIqRTyVVUGshBLxMXCO36Q/viewform?embedded=true">
+
+        <!-- 접힌 상태 -->
+        <div class="form-launcher__idle" id="formIdle">
+          <span class="form-launcher__label">참가신청서</span>
+          <p class="form-launcher__desc">
+            희망 기수 · 연락처 · 전공과 경력을 입력하는 신청서입니다.
+            작성에는 3~5분 정도 걸립니다.
+          </p>
+          <button class="btn btn--primary" type="button" id="formOpen">등록 신청하기</button>
+          <noscript>
+            <p class="form-launcher__desc">
+              <a class="td-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeOPVCgQhEqM9wEV6-THbeQvgtaMIqRTyVVUGshBLxMXCO36Q/viewform" target="_blank" rel="noopener noreferrer">새 창에서 신청서 열기</a>
+            </p>
+          </noscript>
+        </div>
+
+        <!-- 신청서 열린 상태 -->
+        <div class="form-launcher__panel" id="formPanel" hidden>
+          <div class="form-launcher__bar">
+            <span class="form-launcher__bar-title">참가신청서 작성</span>
+            <button class="form-launcher__close" type="button" id="formClose">
+              닫기<span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="form-embed" id="formEmbed"></div>
+        </div>
+
+        <!-- 제출 완료 상태 -->
+        <div class="form-done" id="formDone" hidden>
+          <span class="form-done__icon" aria-hidden="true">✓</span>
+          <h3 class="form-done__title">신청서가 접수되었습니다</h3>
+          <p class="form-done__desc">
+            이어서 아래 버튼으로 <strong>첫 달 교육비</strong>를 결제해 주세요.
+            결제가 확인되면 1영업일 내에 담당자가 연락드립니다.
+          </p>
+          <div class="form-done__actions">
+            <a class="btn btn--primary" href="https://buy.tosspayments.com/products/IGBnLL5poY" target="_blank" rel="noopener noreferrer">첫 달 교육비 결제하기</a>
+            <button class="btn btn--ghost" type="button" id="formAgain">신청서 다시 작성</button>
+          </div>
+        </div>
+
       </div>
 
       <div class="cta-inline cta-inline--pay reveal">
@@ -285,6 +320,6 @@
 
 <a class="float-cta" href="#form" aria-label="신청서 작성하기">신청서 작성</a>
 
-<script src="./assets/js/main.js?v=21" defer></script>
+<script src="./assets/js/main.js?v=22" defer></script>
 </body>
 </html>

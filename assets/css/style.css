@@ -810,12 +810,7 @@ table { border-collapse: collapse; width: 100%; }
 .step__link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* 신청서 임베드 */
-.form-embed {
-  background: var(--c-surface);
-  border: 1px solid var(--c-line-soft);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
+.form-embed { background: var(--c-surface); overflow: hidden; }
 .form-embed iframe {
   display: block;
   width: 100%;
@@ -824,6 +819,104 @@ table { border-collapse: collapse; width: 100%; }
      아래 두 값으로 조절하세요. 폼 아래 빈 공간이 남으면 줄이고,
      폼 안에 스크롤바가 생기면 늘리면 됩니다. */
   height: 2500px;
+}
+
+/* 신청서 런처 (버튼 → 폼 열림 → 제출 후 닫힘) */
+.form-launcher { display: grid; }
+.form-launcher__idle,
+.form-done {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 48px 26px;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+  box-shadow: var(--shadow-sm);
+}
+.form-launcher__label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--c-accent);
+}
+.form-launcher__desc {
+  max-width: 32em;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+
+.form-launcher__panel {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-md);
+}
+.form-launcher__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--c-bg-tint);
+  border-bottom: 1px solid var(--c-line-soft);
+}
+.form-launcher__bar-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.form-launcher__close {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--c-line);
+  background: var(--c-surface);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-mid);
+  transition: color .25s var(--ease), border-color .25s var(--ease);
+}
+.form-launcher__close:hover { color: var(--c-accent-dk); border-color: var(--c-accent); }
+.form-launcher__close span { font-size: 15px; line-height: 1; }
+
+/* 제출 완료 안내 */
+.form-done { border-color: var(--c-accent); }
+.form-done__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+.form-done__title {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.form-done__desc {
+  max-width: 32em;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+.form-done__desc strong { color: var(--c-accent-dk); font-weight: 600; }
+.form-done__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 /* 교육비 안내 박스 */
