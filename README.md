@@ -160,5 +160,22 @@ GitHub 저장소 → **Settings → Pages → Build and deployment**
 1~2분 뒤 `https://<계정>.github.io/bodynox-academy/` 에서 확인할 수 있습니다.
 모든 경로를 상대경로(`./assets/...`)로 작성했기 때문에 하위 경로 배포에서도 그대로 동작합니다.
 
-커스텀 도메인을 쓰려면 저장소 루트에 도메인만 한 줄 적힌 `CNAME` 파일을 추가하고,
-DNS에 GitHub Pages IP(A 레코드) 또는 `<계정>.github.io`(CNAME 레코드)를 연결하세요.
+## 커스텀 도메인 (bpm.bodynox.com)
+
+저장소에 `CNAME` 파일이 있어 GitHub Pages가 `bpm.bodynox.com`으로 서비스합니다.
+
+DNS 설정 (Cloudflare):
+
+| Type | Name | Target | Proxy |
+|---|---|---|---|
+| CNAME | `bpm` | `roiim0224.github.io` | **DNS only (회색 구름)** |
+
+프록시(주황색 구름)를 켜면 GitHub이 SSL 인증서를 발급하지 못합니다. 반드시 회색으로 두세요.
+
+GitHub 저장소 → Settings → Pages → Custom domain 에 `bpm.bodynox.com` 입력 후
+DNS 확인이 끝나면 `Enforce HTTPS` 를 체크합니다.
+
+도메인을 바꾸면 아래 파일의 주소도 함께 수정해야 합니다.
+- `CNAME`
+- 각 HTML 의 `<link rel="canonical">`, `<meta property="og:url">`
+- `robots.txt`, `sitemap.xml`
