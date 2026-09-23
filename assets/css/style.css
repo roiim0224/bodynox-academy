@@ -479,6 +479,7 @@ table { border-collapse: collapse; width: 100%; }
 }
 .section--dark .section__title { color: #FBF8F7; }
 .section--dark .section__desc { color: #B5A6AA; }
+.section--dark .section__desc strong { color: #FBF8F7; }
 .section--dark .eyebrow { color: var(--c-accent-lt); }
 
 .section__head {
