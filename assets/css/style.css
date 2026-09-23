@@ -1535,7 +1535,22 @@ img.photo-slot--wide::after { content: none; }
 }
 .intake__meta > div { display: flex; gap: 12px; font-size: 13.5px; }
 .intake__meta dt { flex: 0 0 66px; color: var(--c-text-weak); }
-.intake__meta dd { font-weight: 500; letter-spacing: -0.01em; }
+.intake__meta dd {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* 국가 국기 */
+.flag {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 12px;
+  border-radius: 1.5px;
+  box-shadow: 0 0 0 1px rgba(42, 23, 30, .12);
+}
 .intake__body .btn { margin-top: auto; }
 
 /* ---------- 히어로 가격 박스 ---------- */

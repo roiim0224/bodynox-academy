@@ -22,11 +22,54 @@
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
   />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=32" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=33" />
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
 </head>
 <body>
+
+<!-- 국기 아이콘 (SVG 스프라이트) -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="flag-kr" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#fff"/>
+      <circle cx="15" cy="10" r="5" fill="#0047A0"/>
+      <path d="M10 10a5 5 0 0 1 10 0 2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 0-5 0" fill="#CD2E3A"/>
+      <g fill="#000">
+        <g transform="translate(4.6,4.6) rotate(-56.3)">
+          <rect x="-2.4" y="-1.55" width="4.8" height="0.85"/>
+          <rect x="-2.4" y="-0.42" width="4.8" height="0.85"/>
+          <rect x="-2.4" y="0.7" width="4.8" height="0.85"/>
+        </g>
+        <g transform="translate(25.4,15.4) rotate(-56.3)">
+          <rect x="-2.4" y="-1.55" width="2" height="0.85"/><rect x="0.4" y="-1.55" width="2" height="0.85"/>
+          <rect x="-2.4" y="-0.42" width="2" height="0.85"/><rect x="0.4" y="-0.42" width="2" height="0.85"/>
+          <rect x="-2.4" y="0.7" width="2" height="0.85"/><rect x="0.4" y="0.7" width="2" height="0.85"/>
+        </g>
+        <g transform="translate(25.4,4.6) rotate(56.3)">
+          <rect x="-2.4" y="-1.55" width="2" height="0.85"/><rect x="0.4" y="-1.55" width="2" height="0.85"/>
+          <rect x="-2.4" y="-0.42" width="4.8" height="0.85"/>
+          <rect x="-2.4" y="0.7" width="2" height="0.85"/><rect x="0.4" y="0.7" width="2" height="0.85"/>
+        </g>
+        <g transform="translate(4.6,15.4) rotate(56.3)">
+          <rect x="-2.4" y="-1.55" width="4.8" height="0.85"/>
+          <rect x="-2.4" y="-0.42" width="2" height="0.85"/><rect x="0.4" y="-0.42" width="2" height="0.85"/>
+          <rect x="-2.4" y="0.7" width="4.8" height="0.85"/>
+        </g>
+      </g>
+    </symbol>
+    <symbol id="flag-th" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#fff"/>
+      <rect width="30" height="3.34" fill="#A51931"/>
+      <rect y="6.66" width="30" height="6.68" fill="#2D2A4A"/>
+      <rect y="16.66" width="30" height="3.34" fill="#A51931"/>
+    </symbol>
+    <symbol id="flag-id" viewBox="0 0 30 20">
+      <rect width="30" height="10" fill="#CE1126"/>
+      <rect y="10" width="30" height="10" fill="#fff"/>
+    </symbol>
+  </defs>
+</svg>
 
 <a class="skip-link" href="#main">본문 바로가기</a>
 
@@ -116,22 +159,22 @@
           <div class="slider" id="heroSlider" aria-roledescription="carousel" aria-label="교육 현장 사진">
             <div class="slider__track" id="heroTrack">
               <figure class="slider__slide">
-                <img class="hero__photo" src="./assets/img/hero-teaching.jpg?v=32"
+                <img class="hero__photo" src="./assets/img/hero-teaching.jpg?v=33"
                      alt="교육생의 어깨 움직임을 직접 평가하며 지도하는 강사"
                      width="1500" height="1000" fetchpriority="high" />
               </figure>
               <figure class="slider__slide">
-                <img class="hero__photo" src="./assets/img/scene-classroom.jpg?v=32"
+                <img class="hero__photo" src="./assets/img/scene-classroom.jpg?v=33"
                      alt="스튜디오에 모여 해부학 이론 강의를 듣는 교육생들"
                      width="1500" height="1000" />
               </figure>
               <figure class="slider__slide">
-                <img class="hero__photo" src="./assets/img/scene-lecture.jpg?v=32"
+                <img class="hero__photo" src="./assets/img/scene-lecture.jpg?v=33"
                      alt="해부학 자료와 골격 모형을 활용해 강의하는 강사"
                      width="1100" height="733" loading="lazy" />
               </figure>
               <figure class="slider__slide">
-                <img class="hero__photo" src="./assets/img/scene-handson.jpg?v=32"
+                <img class="hero__photo" src="./assets/img/scene-handson.jpg?v=33"
                      alt="교육생들이 둘러선 가운데 진행되는 촉진 실습"
                      width="1100" height="733" loading="lazy" />
               </figure>
@@ -188,7 +231,7 @@
       <div class="grid grid--3 intakes">
 
         <article class="intake intake--open reveal">
-          <img class="photo-slot--wide" src="./assets/img/intake-49.jpg?v=32"
+          <img class="photo-slot--wide" src="./assets/img/intake-49.jpg?v=33"
                alt="49기 BPM 지도자 과정 모집 — 움직임의 본질을 가르치는 전문가가 되는 과정"
                width="1200" height="750" loading="lazy" decoding="async" />
           <div class="intake__body">
@@ -200,14 +243,14 @@
             <dl class="intake__meta">
               <div><dt>교육기간</dt><dd>2026.10.24 ~ 2027.03.20</dd></div>
               <div><dt>구분</dt><dd>주말</dd></div>
-              <div><dt>장소</dt><dd>바디녹스 서울역</dd></div>
+              <div><dt>장소</dt><dd><svg class="flag" role="img" aria-label="대한민국"><use href="#flag-kr"/></svg>바디녹스 서울역</dd></div>
             </dl>
             <a class="btn btn--primary btn--block btn--sm" href="./recruit-49.html">세부일정 보기</a>
           </div>
         </article>
 
         <article class="intake reveal">
-          <img class="photo-slot--wide" src="./assets/img/intake-50.jpg?v=32"
+          <img class="photo-slot--wide" src="./assets/img/intake-50.jpg?v=33"
                alt="50기 BPM 지도자 과정 모집 — 움직임의 본질을 가르치는 전문가가 되는 과정"
                width="1200" height="750" loading="lazy" decoding="async" />
           <div class="intake__body">
@@ -219,7 +262,7 @@
             <dl class="intake__meta">
               <div><dt>교육기간</dt><dd><span class="td-empty">추후 공지</span></dd></div>
               <div><dt>구분</dt><dd>주중</dd></div>
-              <div><dt>장소</dt><dd>바디녹스 서울역</dd></div>
+              <div><dt>장소</dt><dd><svg class="flag" role="img" aria-label="대한민국"><use href="#flag-kr"/></svg>바디녹스 서울역</dd></div>
             </dl>
             <a class="btn btn--ghost btn--block btn--sm" href="#contact">일정 문의하기</a>
           </div>
@@ -239,7 +282,7 @@
             <dl class="intake__meta">
               <div><dt>교육기간</dt><dd><span class="td-empty">추후 공지</span></dd></div>
               <div><dt>구분</dt><dd>주말</dd></div>
-              <div><dt>장소</dt><dd>강복 교육센터</dd></div>
+              <div><dt>장소</dt><dd><svg class="flag" role="img" aria-label="대한민국"><use href="#flag-kr"/></svg>강복 교육센터</dd></div>
             </dl>
             <a class="btn btn--ghost btn--block btn--sm" href="#contact">일정 문의하기</a>
           </div>
@@ -259,7 +302,7 @@
             <dl class="intake__meta">
               <div><dt>교육기간</dt><dd><span class="td-empty">추후 공지</span></dd></div>
               <div><dt>구분</dt><dd>주말</dd></div>
-              <div><dt>장소</dt><dd>방콕 교육센터</dd></div>
+              <div><dt>장소</dt><dd><svg class="flag" role="img" aria-label="태국"><use href="#flag-th"/></svg>방콕 교육센터</dd></div>
             </dl>
             <a class="btn btn--ghost btn--block btn--sm" href="#contact">일정 문의하기</a>
           </div>
@@ -279,7 +322,7 @@
             <dl class="intake__meta">
               <div><dt>교육기간</dt><dd><span class="td-empty">추후 공지</span></dd></div>
               <div><dt>구분</dt><dd>주말</dd></div>
-              <div><dt>장소</dt><dd>자카르타 교육센터</dd></div>
+              <div><dt>장소</dt><dd><svg class="flag" role="img" aria-label="인도네시아"><use href="#flag-id"/></svg>자카르타 교육센터</dd></div>
             </dl>
             <a class="btn btn--ghost btn--block btn--sm" href="#contact">일정 문의하기</a>
           </div>
@@ -604,7 +647,7 @@
       <div class="grid grid--3 instructors__grid">
 
         <article class="instructor reveal">
-          <img class="instructor__photo" src="./assets/img/instructor-1.jpg?v=32"
+          <img class="instructor__photo" src="./assets/img/instructor-1.jpg?v=33"
                alt="수업에서 움직임을 설명하고 있는 대표 강사"
                width="675" height="900" loading="lazy" decoding="async" />
           <div class="instructor__body">
@@ -620,7 +663,7 @@
         </article>
 
         <article class="instructor reveal">
-          <img class="instructor__photo" src="./assets/img/instructor-2.jpg?v=32"
+          <img class="instructor__photo" src="./assets/img/instructor-2.jpg?v=33"
                alt="매트 수업을 지도하고 있는 홍지영 강사"
                width="900" height="1200" loading="lazy" decoding="async" />
           <div class="instructor__body">
@@ -636,7 +679,7 @@
         </article>
 
         <article class="instructor reveal">
-          <img class="instructor__photo" src="./assets/img/instructor-3.jpg?v=32"
+          <img class="instructor__photo" src="./assets/img/instructor-3.jpg?v=33"
                alt="바디녹스 스튜디오에서 수업을 지켜보고 있는 홍한나 마스터"
                width="900" height="1200" loading="lazy" decoding="async" />
           <div class="instructor__body">
@@ -668,17 +711,17 @@
 
       <div class="gallery__grid reveal">
         <figure class="gallery__item gallery__item--lg">
-          <img src="./assets/img/scene-classroom.jpg?v=32"
+          <img src="./assets/img/scene-classroom.jpg?v=33"
                alt="스튜디오에 모여 해부학 이론 강의를 듣는 교육생들"
                width="1500" height="1000" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item">
-          <img src="./assets/img/scene-handson.jpg?v=32"
+          <img src="./assets/img/scene-handson.jpg?v=33"
                alt="교육생들이 둘러선 가운데 진행되는 촉진 실습"
                width="1100" height="733" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item">
-          <img src="./assets/img/scene-10.jpg?v=32"
+          <img src="./assets/img/scene-10.jpg?v=33"
                alt="과정을 마치고 수료증을 들고 기념 촬영하는 교육생들과 강사진"
                width="1500" height="843" loading="lazy" decoding="async" />
         </figure>
@@ -686,32 +729,32 @@
 
       <div class="grid grid--3 gallery__more">
         <figure class="gallery__item reveal">
-          <img src="./assets/img/scene-05.jpg?v=32"
+          <img src="./assets/img/scene-05.jpg?v=33"
                alt="골격 모형을 들고 해부학을 설명하는 강사와 스파인 코렉터에 앉아 듣는 교육생들"
                width="1500" height="843" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item reveal">
-          <img src="./assets/img/scene-06.jpg?v=32"
+          <img src="./assets/img/scene-06.jpg?v=33"
                alt="체어 위에서 동작을 시연하는 강사와 둘러서서 관찰하는 교육생들"
                width="1500" height="843" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item reveal">
-          <img src="./assets/img/scene-07.jpg?v=32"
+          <img src="./assets/img/scene-07.jpg?v=33"
                alt="스파인 코렉터에 누워 팔을 들어올리는 동작을 함께 연습하는 교육생들"
                width="1500" height="843" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item reveal">
-          <img src="./assets/img/scene-08.jpg?v=32"
+          <img src="./assets/img/scene-08.jpg?v=33"
                alt="스파인 코렉터에서 롤업 동작을 반복 연습하는 교육생들"
                width="1500" height="843" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item reveal">
-          <img src="./assets/img/scene-09.jpg?v=32"
+          <img src="./assets/img/scene-09.jpg?v=33"
                alt="리포머에 누워 소도구를 활용한 동작을 수행하는 교육생들"
                width="1500" height="843" loading="lazy" decoding="async" />
         </figure>
         <figure class="gallery__item reveal">
-          <img src="./assets/img/scene-lecture.jpg?v=32"
+          <img src="./assets/img/scene-lecture.jpg?v=33"
                alt="해부학 자료와 골격 모형을 활용해 강의하는 강사"
                width="1100" height="733" loading="lazy" decoding="async" />
         </figure>
@@ -863,6 +906,6 @@
 
 <a class="float-cta" href="#contact" aria-label="등록 문의하기">등록 문의</a>
 
-<script src="./assets/js/main.js?v=32" defer></script>
+<script src="./assets/js/main.js?v=33" defer></script>
 </body>
 </html>
