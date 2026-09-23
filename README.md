@@ -72,9 +72,8 @@ python3 -m http.server 8000
 
 | 위치 | 내용 |
 |---|---|
-| `apply.html` 신청서 섹션 | 구글폼 임베드 — `embed-slot` 블록을 구글폼 `<iframe>` 코드로 교체 (HTML 주석에 방법 안내) |
-| `apply.html` 결제 섹션 | 토스 결제 링크 (`<!-- TODO: 토스 결제 링크로 교체 -->`) |
-| `privacy.html` | 수집 항목 · 이용 목적 · 보유 기간이 임시 내용 — 검토 후 확정 필요 |
+| `privacy.html` | 공개 전 법률 검토 권장 (수집 항목 · 목적 · 보유 기간은 참가신청서 기준으로 작성) |
+| `assets/css/style.css` | 구글폼 임베드 높이 — `.form-embed iframe { height }` (모바일 2500px / 데스크톱 2100px). 폼 아래 빈 공간이 남으면 줄이고, 폼 안에 스크롤바가 생기면 늘리세요 |
 | `index.html` 문의 정보 | 주소 · 전화번호 · 이메일 · 인스타그램 |
 | `index.html` 과정/일정/강사진 | 임시 텍스트를 실제 커리큘럼 · 기수 일정 · 약력으로 교체 |
 | `.media-placeholder` 블록 | `assets/img/`에 사진을 넣고 `<img>`로 교체 |
