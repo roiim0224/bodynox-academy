@@ -1669,6 +1669,15 @@ img.photo-slot--wide::after { content: none; }
   letter-spacing: 0.12em;
   color: var(--c-text-weak);
 }
+.instructor__pending {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--c-bg-tint);
+  font-size: 13px;
+  color: var(--c-text-weak);
+}
 .instructor__bio {
   margin-top: 18px;
   padding-top: 18px;
