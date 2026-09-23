@@ -34,6 +34,8 @@ bodynox-academy/
 | `--c-dark` | `#2A171E` | 와인 블랙 — 진로 섹션 배경 |
 | `--c-bg` / `--c-bg-tint` | `#FBF9F7` / `#F4EEE9` | 웜 아이보리 / 베이지 섹션 |
 
+카카오톡 상담 버튼은 `https://pf.kakao.com/_xexjbUT/chat` 로 연결되어 있습니다.
+
 로고 에셋은 원본 JPG의 흰 배경을 제거해 투명 PNG로 만들어 두었습니다.
 
 | 파일 | 내용 | 사용 위치 |
@@ -68,8 +70,8 @@ python3 -m http.server 8000
 
 | 위치 | 내용 |
 |---|---|
-| `index.html` 문의 섹션 | 카카오톡 채널 링크 (`<!-- TODO: 카카오톡 채널 URL로 교체 -->`) |
 | `index.html` 문의 섹션 | 구글폼 링크 (`<!-- TODO: 구글폼 URL로 교체 -->`) |
+| `recruit-49.html` | 교육 신청 결제 링크 (`<!-- TODO: 외부 결제 링크로 교체 -->`) |
 | `index.html` 문의 정보 | 주소 · 전화번호 · 이메일 · 인스타그램 |
 | `index.html` 과정/일정/강사진 | 임시 텍스트를 실제 커리큘럼 · 기수 일정 · 약력으로 교체 |
 | `.media-placeholder` 블록 | `assets/img/`에 사진을 넣고 `<img>`로 교체 |
