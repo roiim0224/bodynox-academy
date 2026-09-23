@@ -1468,6 +1468,28 @@ img.photo-slot--wide::after { content: none; }
 }
 .photo-slot--wide { aspect-ratio: 16 / 10; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
 
+/* ---------- 브랜드 영상 ---------- */
+.brandfilm__frame {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .4);
+}
+.brandfilm__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;      /* 원본 레터박스를 잘라내는 비율 */
+  object-fit: cover;
+  background: #000;
+}
+.brandfilm__caption {
+  margin-top: 14px;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  color: #9C8E92;
+}
+
 /* ---------- 모집 기수 카드 ---------- */
 .intakes { align-items: stretch; }
 .intake {
