@@ -1447,6 +1447,19 @@ table { border-collapse: collapse; width: 100%; }
   color: rgba(86, 64, 60, .4);
   word-break: break-all;
 }
+/* 사진으로 교체했을 때 (img 에 같은 클래스를 붙이면 됩니다) */
+img.photo-slot,
+img.photo-slot--wide,
+img.photo-slot--square,
+img.photo-slot--portrait {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  background: none;
+}
+img.photo-slot::after,
+img.photo-slot--wide::after { content: none; }
+
 .photo-slot--square { aspect-ratio: 1 / 1; }
 .photo-slot--portrait {
   aspect-ratio: 4 / 5;
