@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>교육 신청 | BODYNOX ACADEMY</title>
+  <meta name="description" content="바디녹스 아카데미 BPM 지도자 교육 신청 — 신청서 작성 후 결제, 1영업일 내 확정 안내를 드립니다." />
+  <meta name="theme-color" content="#FBF9F7" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="교육 신청 | BODYNOX ACADEMY" />
+  <meta property="og:description" content="신청서 작성 → 결제 → 확정 안내. 세 단계로 교육 신청이 완료됩니다." />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- Pretendard -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+  />
+
+  <link rel="stylesheet" href="./assets/css/style.css?v=20" />
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header__inner">
+    <a class="logo" href="./index.html" aria-label="바디녹스 아카데미 홈">
+      <img class="logo__img" src="./assets/img/bpm-mark.png"
+           alt="" width="230" height="222" aria-hidden="true" />
+      <span class="logo__text">
+        <span class="logo__mark">BODYNOX</span>
+        <span class="logo__sub">ACADEMY</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="주요 메뉴">
+      <ul class="nav__list">
+        <li><a href="./index.html#schedule">모집 일정</a></li>
+        <li><a href="./index.html#subscription">월 구독</a></li>
+        <li><a href="./index.html#courses">교육 과정</a></li>
+        <li><a href="./index.html#instructors">강사진</a></li>
+        <li><a href="./index.html#centers">교육센터</a></li>
+      </ul>
+      <a class="btn btn--sm btn--kakao nav__cta" href="https://pf.kakao.com/_xexjbUT/chat" target="_blank" rel="noopener noreferrer">카카오톡 상담</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 신청 절차 ============ -->
+  <section class="subhero">
+    <div class="container">
+      <a class="backlink" href="./index.html#schedule">
+        <span aria-hidden="true">←</span> 모집 일정으로 돌아가기
+      </a>
+
+      <div class="apply-head reveal">
+        <p class="eyebrow">APPLY</p>
+        <h1 class="subhero__title">교육 신청</h1>
+        <p class="subhero__lead">
+          신청서 작성부터 확정 안내까지 세 단계로 진행됩니다.
+          진행 중 궁금한 점은 카카오톡으로 언제든 물어보세요.
+        </p>
+      </div>
+
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step__num">STEP 01</span>
+          <h2 class="step__title">신청서 작성</h2>
+          <p class="step__desc">
+            아래 신청서를 작성해 제출해 주세요.
+            희망 기수와 연락처를 정확히 입력해 주시면 안내가 빠릅니다.
+          </p>
+          <a class="step__link" href="#form">신청서로 이동<span aria-hidden="true">↓</span></a>
+        </li>
+        <li class="step">
+          <span class="step__num">STEP 02</span>
+          <h2 class="step__title">결제</h2>
+          <p class="step__desc">
+            신청서 제출 후 결제를 진행합니다.
+            월 구독형이므로 첫 달 교육비만 결제하시면 됩니다.
+          </p>
+          <a class="step__link" href="#payment">결제 안내로 이동<span aria-hidden="true">↓</span></a>
+        </li>
+        <li class="step">
+          <span class="step__num">STEP 03</span>
+          <h2 class="step__title">확정 안내</h2>
+          <p class="step__desc">
+            결제 확인 후 <strong>1영업일 내</strong>에 담당자가 연락드립니다.
+            기수 확정과 준비 사항을 함께 안내합니다.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 신청서 ============ -->
+  <section class="section section--tint" id="form">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">STEP 01</p>
+        <h2 class="section__title">신청서 작성</h2>
+        <p class="section__desc">
+          아래 신청서를 작성해 제출해 주세요.
+          제출이 완료되면 화면에 확인 메시지가 표시됩니다.
+        </p>
+      </div>
+
+      <div class="form-embed reveal">
+        <!--
+          ▼ 구글폼 연결 방법
+          구글폼 → 보내기 → <> (퍼가기) → HTML 복사 후
+          아래 embed-slot 블록 전체를 그 <iframe> 코드로 교체하세요.
+          예시:
+          <iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true"
+                  width="100%" height="1200" frameborder="0"
+                  marginheight="0" marginwidth="0" title="교육 신청서">로드 중…</iframe>
+        -->
+        <div class="embed-slot">
+          <span class="embed-slot__label">신청서 자리</span>
+          <p class="embed-slot__desc">
+            구글폼 임베드 코드가 들어갈 자리입니다.
+            연결 전까지는 아래 버튼으로 카카오톡 상담을 통해 신청을 접수합니다.
+          </p>
+          <a class="btn btn--kakao" href="https://pf.kakao.com/_xexjbUT/chat" target="_blank" rel="noopener noreferrer">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 3C6.98 3 2.91 6.2 2.91 10.15c0 2.54 1.69 4.77 4.23 6.03-.19.68-.68 2.47-.78 2.85-.13.48.17.47.37.34.15-.1 2.39-1.62 3.36-2.28.62.09 1.26.14 1.91.14 5.02 0 9.09-3.2 9.09-7.15S17.02 3 12 3Z"/>
+            </svg>
+            카카오톡으로 신청하기
+          </a>
+        </div>
+      </div>
+
+      <p class="table-note reveal">
+        ※ 제출하신 정보는 교육 상담과 등록 절차에만 사용되며,
+        자세한 내용은 <a class="td-link" href="./privacy.html">개인정보처리방침</a>을 확인해 주세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 결제 ============ -->
+  <section class="section" id="payment">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">STEP 02</p>
+        <h2 class="section__title">결제</h2>
+        <p class="section__desc">
+          신청서 제출 후 아래 버튼으로 결제를 진행해 주세요.
+        </p>
+      </div>
+
+      <div class="price">
+        <div class="price__main reveal">
+          <p class="price__label">월 구독형</p>
+          <p class="price__amount">895,000<span>원</span></p>
+          <p class="price__note">첫 달 결제 · 총 6개월</p>
+        </div>
+
+        <div class="price__body reveal">
+          <h3 class="price__title">결제 전 확인해 주세요</h3>
+          <ul class="checklist checklist--light">
+            <li>첫 달 교육비만 결제하시면 등록이 완료됩니다.</li>
+            <li>이후 5개월간 매월 같은 금액이 청구됩니다.</li>
+            <li>Foundation 자격시험 전에는 언제든 해지할 수 있고, 시작하지 않은 달의 비용은 전액 환불됩니다.</li>
+            <li>교재 · 자격시험 2회 · 그룹수업 20회 · 마스터 1:1 5회가 포함된 금액입니다.</li>
+          </ul>
+
+          <!-- TODO: 토스 결제 링크로 교체 -->
+          <a class="btn btn--primary btn--block" href="#">토스로 결제하기</a>
+          <p class="price__caption">
+            결제창은 새 창에서 열립니다. 결제가 어려우시면 카카오톡으로 알려주세요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 확정 안내 ============ -->
+  <section class="section section--dark" id="confirm">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">STEP 03</p>
+          <h2 class="section__title">확정 안내</h2>
+          <p class="section__desc">
+            결제가 확인되면 <strong>1영업일 내</strong>에 담당자가 연락드립니다.
+            연락이 닿지 않을 경우 카카오톡으로 안내드리니, 채널을 추가해 두시면 좋습니다.
+          </p>
+          <div class="subhero__actions">
+            <a class="btn btn--kakao" href="https://pf.kakao.com/_xexjbUT/chat" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 3C6.98 3 2.91 6.2 2.91 10.15c0 2.54 1.69 4.77 4.23 6.03-.19.68-.68 2.47-.78 2.85-.13.48.17.47.37.34.15-.1 2.39-1.62 3.36-2.28.62.09 1.26.14 1.91.14 5.02 0 9.09-3.2 9.09-7.15S17.02 3 12 3Z"/>
+              </svg>
+              카카오톡 채널 추가
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 class="career__aside-title">확정 안내에 포함되는 내용</h3>
+          <ul class="requirements">
+            <li><strong>기수 확정</strong><span>신청하신 기수의 확정 여부와 개강일을 안내합니다.</span></li>
+            <li><strong>온라인 과정 계정</strong><span>대면 수업 전 이수해야 하는 온라인 강의 접속 방법을 보내드립니다.</span></li>
+            <li><strong>준비물 안내</strong><span>교재 수령 방법과 첫 수업 준비 사항을 알려드립니다.</span></li>
+            <li><strong>담당자 연락처</strong><span>교육 기간 내내 문의할 수 있는 담당자를 배정합니다.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 문의 ============ -->
+  <section class="section" id="help">
+    <div class="container">
+      <div class="cta-inline reveal">
+        <p class="cta-inline__text">
+          신청 과정에서 막히는 부분이 있으신가요?
+          <strong>카카오톡으로 알려주시면 바로 도와드립니다.</strong>
+        </p>
+        <a class="btn btn--kakao" href="https://pf.kakao.com/_xexjbUT/chat" target="_blank" rel="noopener noreferrer">
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 3C6.98 3 2.91 6.2 2.91 10.15c0 2.54 1.69 4.77 4.23 6.03-.19.68-.68 2.47-.78 2.85-.13.48.17.47.37.34.15-.1 2.39-1.62 3.36-2.28.62.09 1.26.14 1.91.14 5.02 0 9.09-3.2 9.09-7.15S17.02 3 12 3Z"/>
+          </svg>
+          카카오톡 상담
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src="./assets/img/bpm-logo.png"
+           alt="BPM 바디녹스 필라테스 메소드 로고" width="650" height="291" />
+      <p class="footer__brand-name">
+        <span class="logo__mark">BODYNOX</span>
+        <span class="logo__sub">ACADEMY</span>
+      </p>
+      <p class="footer__tagline">월 구독형 필라테스 지도자 교육 · BPM CURRICULUM</p>
+    </div>
+    <nav class="footer__nav" aria-label="푸터 메뉴">
+      <a href="./index.html#schedule">모집 일정</a>
+      <a href="./index.html#courses">교육 과정</a>
+      <a href="./apply.html">교육 신청</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+    </nav>
+    <div class="footer__biz">
+      <p>
+        <strong>(주)바디녹스인터내셔널</strong>
+        <span>대표 임용호</span>
+        <span>사업자등록번호 884-81-01065</span>
+      </p>
+      <p>
+        <span>서울특별시 용산구 한강대로 366, 남산트위시티 B동 1층 105호</span>
+        <span>교육문의 <a href="tel:01023644499">010-2364-4499</a></span>
+      </p>
+    </div>
+    <p class="footer__copy">
+      &copy; <span id="year">2026</span> BODYNOX ACADEMY. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<a class="float-cta" href="#form" aria-label="신청서 작성하기">신청서 작성</a>
+
+<script src="./assets/js/main.js?v=20" defer></script>
+</body>
+</html>

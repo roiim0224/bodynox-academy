@@ -8,6 +8,8 @@
 ```
 bodynox-academy/
 ├─ index.html              # 메인 페이지 (모든 섹션)
+├─ apply.html              # 교육 신청 (신청서 → 결제 → 확정 안내)
+├─ privacy.html            # 개인정보처리방침
 ├─ recruit-49.html         # 49기 주말반 모집 세부 안내 페이지
 ├─ online.html             # Online 과정 상세 페이지
 ├─ foundation.html         # Foundation 과정 상세 페이지
@@ -70,8 +72,9 @@ python3 -m http.server 8000
 
 | 위치 | 내용 |
 |---|---|
-| `index.html` 문의 섹션 | 구글폼 링크 (`<!-- TODO: 구글폼 URL로 교체 -->`) |
-| `recruit-49.html` | 교육 신청 결제 링크 (`<!-- TODO: 외부 결제 링크로 교체 -->`) |
+| `apply.html` 신청서 섹션 | 구글폼 임베드 — `embed-slot` 블록을 구글폼 `<iframe>` 코드로 교체 (HTML 주석에 방법 안내) |
+| `apply.html` 결제 섹션 | 토스 결제 링크 (`<!-- TODO: 토스 결제 링크로 교체 -->`) |
+| `privacy.html` | 수집 항목 · 이용 목적 · 보유 기간이 임시 내용 — 검토 후 확정 필요 |
 | `index.html` 문의 정보 | 주소 · 전화번호 · 이메일 · 인스타그램 |
 | `index.html` 과정/일정/강사진 | 임시 텍스트를 실제 커리큘럼 · 기수 일정 · 약력으로 교체 |
 | `.media-placeholder` 블록 | `assets/img/`에 사진을 넣고 `<img>`로 교체 |

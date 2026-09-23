@@ -758,6 +758,155 @@ table { border-collapse: collapse; width: 100%; }
   letter-spacing: -0.03em;
 }
 
+/* 신청 페이지 상단 */
+.subhero--narrow { padding-bottom: 20px; }
+.subhero--narrow + .section { padding-top: 40px; }
+.apply-head { max-width: 640px; }
+.apply-head .subhero__lead { margin-top: 16px; }
+
+/* 신청 절차 3단계 */
+.steps {
+  margin-top: 44px;
+  display: grid;
+  gap: 14px;
+}
+.step {
+  position: relative;
+  padding: 26px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+  box-shadow: var(--shadow-sm);
+}
+.step__num {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--c-accent);
+  margin-bottom: 10px;
+}
+.step__title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.step__desc {
+  margin-top: 10px;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+.step__desc strong { color: var(--c-accent-dk); font-weight: 600; }
+.step__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-accent-dk);
+}
+.step__link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* 신청서 임베드 */
+.form-embed {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.form-embed iframe { display: block; width: 100%; border: 0; }
+.embed-slot {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 56px 26px;
+  text-align: center;
+  background: linear-gradient(135deg, #F7F1EB 0%, #F1E9E2 100%);
+}
+.embed-slot__label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--c-accent);
+}
+.embed-slot__desc {
+  max-width: 34em;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+
+.price__caption {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--c-text-weak);
+}
+.price__body .btn--block { margin-top: 22px; }
+
+/* 약관 · 방침 본문 */
+.legal { max-width: 760px; }
+.legal h2 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--c-text);
+}
+.legal h2:first-child { margin-top: 0; }
+.legal p {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--c-text-mid);
+}
+.legal ul { margin-top: 12px; display: grid; gap: 9px; }
+.legal li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+.legal li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--c-accent);
+}
+.legal li strong { color: var(--c-text); font-weight: 600; }
+.legal__notice {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: var(--c-accent-bg);
+  border: 1px solid #F0D5DF;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--c-accent-dk);
+}
+.legal__dl {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+.legal__dl > div { display: flex; gap: 16px; font-size: 15px; }
+.legal__dl dt { flex: 0 0 116px; color: var(--c-text-weak); }
+.legal__dl dd { color: var(--c-text); }
+.legal__date {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--c-line-soft);
+  font-size: 14px;
+  color: var(--c-text-weak);
+}
+
 /* 모듈 목록 */
 .modules {
   counter-reset: module;
@@ -1628,6 +1777,9 @@ table { border-collapse: collapse; width: 100%; }
     gap: 64px;
   }
   .factlist { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step { padding: 30px 28px; }
+
   .module {
     grid-template-columns: 260px 1fr;
     gap: 40px;
