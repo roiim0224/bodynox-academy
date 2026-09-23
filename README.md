@@ -8,6 +8,7 @@
 ```
 bodynox-academy/
 ├─ index.html              # 메인 페이지 (모든 섹션)
+├─ recruit-49.html         # 49기 주말반 모집 세부 안내 페이지
 ├─ online.html             # Online 과정 상세 페이지
 ├─ foundation.html         # Foundation 과정 상세 페이지
 ├─ intermediate.html       # Intermediate 과정 상세 페이지
