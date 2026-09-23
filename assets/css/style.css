@@ -1554,6 +1554,8 @@ table { border-collapse: collapse; width: 100%; }
   color: #D4C7CA;
 }
 .checklist--light li { color: var(--c-text-mid); }
+.checklist li strong { color: var(--c-accent-dk); font-weight: 600; }
+.section__desc strong { color: var(--c-text); font-weight: 600; }
 .checklist li::before {
   content: "";
   position: absolute;
