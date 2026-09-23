@@ -1823,6 +1823,7 @@ img.photo-slot--wide::after { content: none; }
   letter-spacing: -0.02em;
 }
 .contact__info a { border-bottom: 1px solid var(--c-line); padding-bottom: 1px; }
+.contact__info a.ig-link { border-bottom: 0; padding-bottom: 0; }
 .contact__info a:hover { color: var(--c-accent-dk); border-color: var(--c-accent); }
 
 /* ---------- Footer ---------- */
@@ -1848,6 +1849,33 @@ img.photo-slot--wide::after { content: none; }
   color: var(--c-text-mid);
 }
 .footer__nav a:hover { color: var(--c-accent-dk); }
+
+/* 인스타그램 링크 */
+.ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: color .25s var(--ease);
+}
+.ig-link:hover { color: var(--c-accent-dk); }
+.ig-icon { width: 17px; height: 17px; flex: 0 0 auto; }
+.ig-link--footer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--c-line);
+  color: var(--c-text-mid);
+  transition: color .25s var(--ease), border-color .25s var(--ease), background-color .25s var(--ease);
+}
+.ig-link--footer:hover {
+  color: #fff;
+  border-color: var(--c-accent);
+  background: var(--c-accent);
+}
+.ig-link--footer .ig-icon { width: 18px; height: 18px; }
 .footer__biz {
   padding-top: 22px;
   border-top: 1px solid var(--c-line);
