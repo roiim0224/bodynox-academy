@@ -868,6 +868,31 @@ table { border-collapse: collapse; width: 100%; }
   justify-content: center;
 }
 
+/* 본문 중간 등록 유도 밴드 */
+.cta-inline {
+  margin-top: 44px;
+  padding: 24px 26px;
+  border-radius: var(--radius-lg);
+  background: var(--c-accent-bg);
+  border: 1px solid #F0D5DF;
+  display: grid;
+  gap: 16px;
+  align-items: center;
+}
+.cta-inline__text {
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+}
+.cta-inline__text strong {
+  display: block;
+  margin-top: 2px;
+  font-weight: 600;
+  color: var(--c-accent-dk);
+}
+.cta-inline .btn { white-space: nowrap; }
+
 /* 하단 CTA 밴드 */
 .cta-band { display: grid; gap: 28px; }
 .cta-band__actions { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
@@ -1265,6 +1290,11 @@ table { border-collapse: collapse; width: 100%; }
     padding: 32px 36px;
   }
   .module__meta { grid-template-columns: repeat(2, 1fr); gap: 10px 32px; }
+  .cta-inline {
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    padding: 26px 34px;
+  }
   .cta-band {
     grid-template-columns: 1.3fr 0.7fr;
     gap: 48px;
