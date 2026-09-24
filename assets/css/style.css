@@ -1621,15 +1621,200 @@ img.photo-slot--wide::after { content: none; }
   color: #AB9CA0;
 }
 
-/* ---------- 교육센터 ---------- */
+/* ---------- 교육센터 카드 ---------- */
+.center {
+  display: block;
+  color: inherit;
+  transition: transform .35s var(--ease);
+}
+.center:hover { transform: translateY(-4px); }
+.center .photo-slot,
+.center img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .35s var(--ease);
+}
+.center:hover .photo-slot,
+.center:hover img { box-shadow: var(--shadow-md); }
 .center__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-top: 16px;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.03em;
 }
 .center__note { margin-top: 5px; font-size: 13.5px; color: var(--c-text-weak); }
-.center .photo-slot { border-radius: var(--radius-lg); }
+.center__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--c-accent-dk);
+}
+.center__more span { transition: transform .25s var(--ease); }
+.center:hover .center__more span { transform: translateX(4px); }
+
+/* 센터 상세 — 제목 옆 국기 */
+.flag--title {
+  width: 30px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: -2px;
+}
+
+/* 센터 상세 — 마스터 강사 박스 */
+.mboxes { display: grid; gap: 20px; }
+.mbox {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+}
+.mbox__photo,
+.mbox .photo-slot--portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.mbox__body { padding: 26px 24px 28px; }
+.mbox__name {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.mbox__name--empty { color: var(--c-text-weak); }
+.mbox__field {
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--c-text-weak);
+}
+.mbox__career {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--c-line-soft);
+  display: grid;
+  gap: 8px;
+}
+.mbox__career li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--c-text-mid);
+}
+.mbox__career li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1px;
+  background: var(--c-accent);
+}
+.mbox__career li.mbox__todo { color: var(--c-text-weak); }
+.mbox__career li.mbox__todo::before { background: var(--c-line); }
+.mbox__intro {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--c-line-soft);
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--c-text-mid);
+}
+.mbox__intro--empty { color: var(--c-text-weak); }
+
+/* 센터 상세 — 스튜디오 사진 슬라이더 */
+.pslider { position: relative; }
+.pslider__viewport {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--c-bg-tint);
+}
+.pslider__track {
+  display: flex;
+  will-change: transform;
+  transition: transform .5s var(--ease);
+}
+.pslider__slide { flex: 0 0 100%; margin: 0; min-width: 0; }
+.pslider__slide img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+.pslider__slide .photo-slot { border-radius: 0; }
+.pslider__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-sm);
+  font-size: 24px;
+  line-height: 1;
+  color: var(--c-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .25s var(--ease), color .25s var(--ease);
+}
+.pslider__nav:hover { background: #fff; color: var(--c-accent-dk); }
+.pslider__nav--prev { left: 12px; }
+.pslider__nav--next { right: 12px; }
+.pslider__nav span { margin-top: -3px; }
+.pslider__dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+.pslider__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--c-line);
+  transition: background-color .3s var(--ease), width .3s var(--ease);
+}
+.pslider__dot.is-active { width: 22px; border-radius: 999px; background: var(--c-accent); }
+
+/* 센터 상세 — 오시는 길 */
+.cinfo { margin-top: 24px; display: grid; gap: 14px; }
+.cinfo > div { display: flex; gap: 18px; }
+.cinfo dt {
+  flex: 0 0 60px;
+  font-size: 13px;
+  color: #AB9CA0;
+}
+.cinfo dd {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #EBE0E2;
+}
+.cinfo dd a { border-bottom: 1px solid rgba(255, 255, 255, .3); }
+.cinfo dd a:hover { border-color: var(--c-accent-lt); }
+.cinfo__actions {
+  margin-top: 20px;
+  display: grid;
+  gap: 10px;
+}
 
 /* ---------- 교육 현장 갤러리 ---------- */
 .gallery__grid { display: grid; gap: 12px; }
@@ -2063,6 +2248,19 @@ img.photo-slot--wide::after { content: none; }
   .gallery__item--lg { grid-row: span 2; }
   .gallery__item img { aspect-ratio: auto; }
   .gallery__grid .photo-slot { aspect-ratio: auto; }
+
+  .mboxes--2 { grid-template-columns: repeat(2, 1fr); }
+  .mboxes--3 { grid-template-columns: repeat(3, 1fr); }
+  .mbox--wide { grid-template-columns: 340px 1fr; }
+  .mboxes--1 .mbox { grid-template-columns: 340px 1fr; }
+  .mboxes--1 .mbox__photo,
+  .mboxes--1 .mbox .photo-slot--portrait {
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  }
+  .cinfo__actions { grid-template-columns: repeat(3, 1fr); }
 
   .numbers { grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .numbers li { padding: 32px 20px; }

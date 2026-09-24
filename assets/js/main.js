@@ -303,6 +303,74 @@
     if (againBtn) againBtn.addEventListener('click', openForm);
   })();
 
+  /* ---------- 스튜디오 사진 슬라이더 (좌우 이동 · 점 · 스와이프) ---------- */
+  document.querySelectorAll('[data-slider]').forEach(function (root) {
+    var track = root.querySelector('[data-slider-track]');
+    var dotsBox = root.querySelector('[data-slider-dots]');
+    var prevBtn = root.querySelector('[data-slider-prev]');
+    var nextBtn = root.querySelector('[data-slider-next]');
+    if (!track) return;
+
+    var slides = Array.prototype.slice.call(track.children);
+    if (slides.length < 2) {
+      if (prevBtn) prevBtn.hidden = true;
+      if (nextBtn) nextBtn.hidden = true;
+      return;
+    }
+
+    var index = 0;
+    var dots = [];
+
+    function render() {
+      track.style.transform = 'translate3d(' + (-index * 100) + '%, 0, 0)';
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === index);
+        d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      });
+    }
+
+    function go(n) {
+      index = (n + slides.length) % slides.length;
+      render();
+    }
+
+    if (dotsBox) {
+      slides.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'pslider__dot' + (i === 0 ? ' is-active' : '');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', (i + 1) + '번째 사진');
+        b.addEventListener('click', function () { go(i); });
+        dotsBox.appendChild(b);
+        dots.push(b);
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(index - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(index + 1); });
+
+    // 좌우 방향키
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { go(index - 1); }
+      else if (e.key === 'ArrowRight') { go(index + 1); }
+    });
+
+    // 모바일 스와이프
+    var startX = null;
+    root.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(dx < 0 ? index + 1 : index - 1);
+      startX = null;
+    });
+
+    render();
+  });
+
   /* ---------- 푸터 연도 ---------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

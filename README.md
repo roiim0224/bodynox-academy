@@ -10,6 +10,7 @@ bodynox-academy/
 ├─ index.html              # 메인 페이지 (모든 섹션)
 ├─ apply.html              # 교육 신청 (신청서 → 결제 → 확정 안내)
 ├─ privacy.html            # 개인정보처리방침
+├─ center-*.html           # 교육센터 상세 6개 (seoul/gwanghwamun/seocho/gangbuk/jakarta/bangkok)
 ├─ recruit-49.html         # 49기 주말반 모집 세부 안내 페이지
 ├─ online.html             # Online 과정 상세 페이지
 ├─ foundation.html         # Foundation 과정 상세 페이지
@@ -135,6 +136,25 @@ python3 -m http.server 8000
 - 비율이 조금 달라도 `object-fit: cover`로 잘려서 채워집니다. 다만 인물·문자가 가장자리에
   붙어 있으면 잘릴 수 있으니 **중앙에서 8% 정도 여백**을 두고 배치해 주세요.
 - 카드 상단에 들어가는 사진(`--wide`, `--portrait`)은 위쪽 두 모서리가 둥글게 처리됩니다.
+
+## 교육센터 상세 페이지
+
+6개 센터 페이지는 `tools/build-centers.py` 로 한 번에 생성합니다.
+마스터 강사·주소·연락처를 바꿀 때는 `tools/centers_data.py` 를 수정하고 스크립트를 다시 실행하세요.
+
+```bash
+python3 tools/build-centers.py
+```
+
+각 페이지의 사진 자리:
+
+| 자리 | 파일명 | 크기 |
+|---|---|---|
+| 목록 카드 썸네일 | `center-<slug>.jpg` | 1000 × 1000 |
+| 마스터 강사 사진 | `master-<slug>-<n>.jpg` | 900 × 1200 |
+| 스튜디오 사진 (최대 10장) | `studio-<slug>-01.jpg` ~ `-10.jpg` | 1600 × 1000 |
+
+마스터 강사 소개글은 **500자 이내**로 작성합니다 (HTML 주석에 표시해 두었습니다).
 
 ## 캐시 주의
 
