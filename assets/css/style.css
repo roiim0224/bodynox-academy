@@ -1723,16 +1723,21 @@ img.photo-slot--wide::after { content: none; }
 
 /* ---------- 히어로 가격 박스 ---------- */
 .pricebox {
-  margin-top: 28px;
-  padding: 22px 24px;
+  margin-top: 26px;
+  padding: 20px 22px;
   border-radius: var(--radius-lg);
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   box-shadow: var(--shadow-sm);
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
-.pricebox__main { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.pricebox__main {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
 .pricebox__label {
   padding: 4px 11px;
   border-radius: 999px;
@@ -1752,11 +1757,32 @@ img.photo-slot--wide::after { content: none; }
 .pricebox__amount span { font-size: 0.55em; font-weight: 500; margin-left: 2px; }
 .pricebox__note { font-size: 14px; color: var(--c-text-mid); }
 .pricebox__desc {
-  font-size: 13.5px;
-  line-height: 1.8;
-  color: var(--c-text-mid);
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--c-line-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--c-text-weak);
 }
 .pricebox__desc strong { color: var(--c-accent-dk); font-weight: 600; }
+
+/* 조건 3가지 — 가운뎃점으로 이어지는 한 줄 */
+.pricebox__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--c-text-mid);
+}
+.pricebox__facts li { position: relative; }
+.pricebox__facts li + li::before {
+  content: '\00b7';
+  position: absolute;
+  left: -8px;
+  color: var(--c-line);
+}
+.pricebox__facts strong { color: var(--c-accent-dk); font-weight: 600; }
 
 /* ---------- 숫자 ---------- */
 .numbers {
@@ -2368,7 +2394,7 @@ img.photo-slot--wide::after { content: none; }
   }
   .hero__lead { font-size: 16.5px; }
   .hero__stats { gap: 24px; }
-  .hero__photo { aspect-ratio: 5 / 4; }
+  .hero__photo { aspect-ratio: 4 / 5; }
   .hero__badge { left: 26px; bottom: 22px; }
   .hero__badge img { width: 150px; }
 
@@ -2442,7 +2468,7 @@ img.photo-slot--wide::after { content: none; }
 
   .numbers { grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .numbers li { padding: 32px 20px; }
-  .pricebox { grid-template-columns: auto 1fr; gap: 28px; align-items: center; padding: 24px 28px; }
+  .pricebox { padding: 24px 26px; gap: 13px; }
   .split { grid-template-columns: 1fr 1fr; gap: 64px; }
 
   /* table -> real table */
@@ -2512,7 +2538,11 @@ img.photo-slot--wide::after { content: none; }
 }
 
 @media (min-width: 1120px) {
-  .hero__inner { gap: 80px; }
+  /* 사진 칸을 조금 넓히고 세로로 키워 왼쪽 글 높이에 맞춘다 */
+  .hero__inner { grid-template-columns: 1fr 1.02fr; gap: 72px; }
+  .hero__photo { aspect-ratio: 4 / 5; }
+  .hero__badge { left: 30px; bottom: 26px; }
+  .hero__badge img { width: 164px; }
 }
 
 /* ---------- Motion preferences ---------- */
