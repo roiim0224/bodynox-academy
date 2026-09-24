@@ -55,6 +55,17 @@ HEAD = '''<!DOCTYPE html>
   <meta property="og:title" content="{name} | BODYNOX ACADEMY" />
   <meta property="og:description" content="{desc}" />
   <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="BODYNOX ACADEMY" />
+  <meta property="og:image" content="https://bpm.bodynox.com/assets/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="BODYNOX ACADEMY — Bodynox Pilates Method 지도자 교육" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{name} | BODYNOX ACADEMY" />
+  <meta name="twitter:description" content="{desc}" />
+  <meta name="twitter:image" content="https://bpm.bodynox.com/assets/img/og-cover.jpg" />
 
   <!-- Pretendard -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -263,6 +274,45 @@ PRACTICE_SECTION = """
 """
 
 
+SITE = 'https://bpm.bodynox.com'
+
+
+def ld(c, name, desc):
+    """센터 페이지 구조화 데이터 — 주소를 아는 센터만 LocalBusiness 로 표기"""
+    import json
+    out = []
+    addr = (c.get('address') or '').split('<')[0].strip()
+    if addr:
+        biz = {
+            "@context": "https://schema.org",
+            "@type": "SportsActivityLocation",
+            "name": name,
+            "description": desc,
+            "url": '%s/center-%s.html' % (SITE, c['slug']),
+            "image": SITE + "/assets/img/center-%s.jpg" % c['slug'],
+            "address": {"@type": "PostalAddress", "streetAddress": addr,
+                        "addressCountry": {'kr': 'KR', 'th': 'TH', 'id': 'ID'}[c['flag']]},
+            "parentOrganization": {"@id": SITE + "/#organization"},
+        }
+        if c.get('phone'):
+            biz["telephone"] = c.get('tel') or c['phone']
+        out.append(biz)
+    out.append({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "홈", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "교육센터", "item": SITE + "/#centers"},
+            {"@type": "ListItem", "position": 3, "name": name},
+        ],
+    })
+    blob = '\n'.join(
+        '  <script type="application/ld+json">\n  %s\n  </script>' %
+        json.dumps(o, ensure_ascii=False, indent=2).replace('\n', '\n  ')
+        for o in out)
+    return '\n  <!-- 구조화 데이터 -->\n' + blob + '\n'
+
+
 def master_box(c, m, i):
     slug = c['slug']
     n = i + 1
@@ -303,8 +353,9 @@ def master_box(c, m, i):
 
 def build(c):
     slug, name = c['slug'], c['name']
-    desc = '%s — BPM 지도자 교육이 진행되는 바디녹스 아카데미 교육센터입니다.' % name
+    desc = c.get('seo') or ('%s — BPM 지도자 교육이 진행되는 바디녹스 아카데미 교육센터입니다.' % name)
     s = HEAD.format(name=name, desc=desc, slug=slug, V=V)
+    s = s.replace('</head>', ld(c, name, desc) + '</head>', 1)
 
     # ── 상단 ──
     s += '''
