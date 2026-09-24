@@ -128,6 +128,14 @@ table { border-collapse: collapse; width: 100%; }
   margin-bottom: 14px;
 }
 
+/* 페이지 도입부의 한글 eyebrow — 영문 섹션 라벨보다 크게, 자간은 좁게 */
+.eyebrow--lead {
+  font-size: clamp(14px, 1.2vw, 16.5px);
+  letter-spacing: 0.06em;
+  text-transform: none;
+  margin-bottom: 16px;
+}
+
 .section__title {
   font-size: clamp(26px, 5.4vw, 40px);
   font-weight: 600;
