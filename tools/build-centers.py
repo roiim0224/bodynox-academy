@@ -313,7 +313,7 @@ def build(c):
 '''.format(
         eyebrow='PRACTICE SPACE' if c.get('practice') else 'BPM CENTER',
         country=c['country'], flag=c['flag'], name=name,
-        lead=('교육생이 자유롭게 연습할 수 있는 전용 공간입니다.'
+        lead=('연습 공간의 확장 &mdash; 교육생이 자유롭게 연습할 수 있는 전용 공간입니다.'
               if c.get('practice')
               else c['note'] + ' · BPM 커리큘럼으로 동일하게 진행됩니다.'))
 
