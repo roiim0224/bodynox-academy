@@ -11,7 +11,7 @@ bodynox-academy/
 ├─ apply.html              # 교육 신청 (신청서 → 결제 → 확정 안내)
 ├─ privacy.html            # 개인정보처리방침
 ├─ center-*.html           # 교육센터 상세 6개 (seoul/gwanghwamun/seocho/gangbuk/jakarta/bangkok)
-├─ recruit-49.html         # 49기 주말반 모집 세부 안내 페이지
+├─ recruit-79.html         # 79기 주말반 모집 세부 안내 페이지
 ├─ online.html             # Online 과정 상세 페이지
 ├─ foundation.html         # Foundation 과정 상세 페이지
 ├─ intermediate.html       # Intermediate 과정 상세 페이지
@@ -127,7 +127,7 @@ python3 -m http.server 8000
 
 | 클래스 | 비율 | 제작 크기 | 쓰이는 곳 | 파일명 |
 |---|---|---|---|---|
-| `photo-slot--wide` | 16:10 | **1200 × 750** | 모집 기수 카드 | `intake-49.jpg` ~ `intake-53.jpg` |
+| `photo-slot--wide` | 16:10 | **1200 × 750** | 모집 기수 카드 | `intake-79.jpg` ~ `intake-83.jpg` |
 | `photo-slot--square` | 1:1 | **1000 × 1000** | 교육센터, 갤러리 하단 | `center-*.jpg`, `scene-06~09.jpg` |
 | `photo-slot--portrait` | 3:4 | **900 × 1200** | 강사 프로필 | `instructor-2.jpg`, `instructor-3.jpg` |
 | (기본) | 3:2 | **1500 × 1000** | 갤러리 큰 사진 | `scene-05.jpg` |
