@@ -5,6 +5,29 @@ from centers_data import CENTERS, V, IG, KAKAO
 
 OUT = '/Users/yongho/Projects/bodynox-academy'
 
+
+def jpeg_size(path):
+    """외부 라이브러리 없이 JPEG 의 실제 픽셀 크기를 읽는다."""
+    import struct
+    with open(path, 'rb') as f:
+        f.read(2)
+        while True:
+            b = f.read(1)
+            while b and b != b'\xff':
+                b = f.read(1)
+            m = f.read(1)
+            while m == b'\xff':
+                m = f.read(1)
+            if not m:
+                return (1600, 900)
+            if m[0] in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+                        0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                f.read(3)
+                h, w = struct.unpack('>HH', f.read(4))
+                return (w, h)
+            L = struct.unpack('>H', f.read(2))[0]
+            f.read(L - 2)
+
 HEAD = '''<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -251,13 +274,29 @@ def build(c):
           <div class="pslider__track" data-slider-track>
 '''.format(name=name)
 
+    # 실제 사진이 assets/img 에 있으면 <img>, 없으면 사진 자리
+    shown = 0
     for i in range(1, c['photos'] + 1):
-        s += ('            <figure class="pslider__slide">\n'
-              '              <div class="photo-slot photo-slot--wide">\n'
-              '                <span class="photo-slot__label">스튜디오 사진 %d</span>\n'
-              '                <span class="photo-slot__hint">assets/img/studio-%s-%02d.jpg</span>\n'
-              '              </div>\n'
-              '            </figure>\n' % (i, c['slug'], i))
+        fname = 'studio-%s-%02d.jpg' % (c['slug'], i)
+        fpath = os.path.join(OUT, 'assets', 'img', fname)
+        if os.path.exists(fpath):
+            shown += 1
+            lazy = '' if shown == 1 else ' loading="lazy"'
+            w, h = jpeg_size(fpath)
+            cls = 'pslider__slide' + ('' if w >= h else ' pslider__slide--portrait')
+            s += ('            <figure class="%s">\n'
+                  '              <img src="./assets/img/%s?v=%s"\n'
+                  '                   alt="%s 스튜디오 %d"\n'
+                  '                   width="%d" height="%d"%s decoding="async" />\n'
+                  '            </figure>\n' % (cls, fname, V, c['name'], i, w, h, lazy))
+    if shown == 0:
+        for i in range(1, c['photos'] + 1):
+            s += ('            <figure class="pslider__slide">\n'
+                  '              <div class="photo-slot photo-slot--wide">\n'
+                  '                <span class="photo-slot__label">스튜디오 사진 %d</span>\n'
+                  '                <span class="photo-slot__hint">assets/img/studio-%s-%02d.jpg</span>\n'
+                  '              </div>\n'
+                  '            </figure>\n' % (i, c['slug'], i))
 
     addr = c['address'] or '<span class="td-empty">추후 공지</span>'
     if c['phone']:

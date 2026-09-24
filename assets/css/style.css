@@ -1751,9 +1751,17 @@ img.photo-slot--wide::after { content: none; }
 .pslider__slide { flex: 0 0 100%; margin: 0; min-width: 0; }
 .pslider__slide img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+}
+.pslider__slide .photo-slot--wide { aspect-ratio: 16 / 9; }
+
+/* 세로 사진은 잘리지 않게 전체를 보여준다 */
+.pslider__slide--portrait img {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--c-bg-tint);
 }
 .pslider__slide .photo-slot { border-radius: 0; }
 .pslider__nav {

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-V = '38'
+V = '40'
 IG = 'https://www.instagram.com/bpm.bodynox'
 KAKAO = 'https://pf.kakao.com/_xexjbUT/chat'
 
