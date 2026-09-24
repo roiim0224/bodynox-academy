@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-V = '37'
+V = '38'
 IG = 'https://www.instagram.com/bpm.bodynox'
 KAKAO = 'https://pf.kakao.com/_xexjbUT/chat'
 
@@ -18,6 +18,16 @@ JIYOUNG = dict(
     career=['영국 GARUDA Method 마스터 강사',
             '전) PSC Burn at the Barre 마스터 강사',
             '한성대 무용 전공',
+            '필라테스 지도 경력 20년'],
+    intro=None,
+)
+
+HANNA = dict(
+    name='홍한나', role='마스터', field='The Way Pilates CEO',
+    photo='instructor-3.jpg',
+    career=['BPM Master Instructor',
+            '이화여자대학교 스포츠교육학 석사',
+            '전) 더 모던 필라테스 대표',
             '필라테스 지도 경력 20년'],
     intro=None,
 )
@@ -44,5 +54,5 @@ CENTERS = [
          address=None, phone=None, masters=blank(3), photos=10),
     dict(slug='bangkok', name='방콕센터', short='방콕센터',
          flag='th', country='태국', note='주말반 진행',
-         address=None, phone=None, masters=blank(1), photos=10),
+         address=None, phone=None, masters=[HANNA], photos=10),
 ]
