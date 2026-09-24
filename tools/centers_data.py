@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-V = '43'
+V = '44'
 IG = 'https://www.instagram.com/bpm.bodynox'
 KAKAO = 'https://pf.kakao.com/_xexjbUT/chat'
 
@@ -41,8 +41,10 @@ CENTERS = [
          address='서울특별시 용산구 한강대로 366, 남산트윈시티 B동 1층 105호',
          phone='010-2364-4499', masters=[YONGHO, JIYOUNG], photos=10),
     dict(slug='gwanghwamun', name='바디녹스 광화문센터', short='광화문센터',
-         flag='kr', country='대한민국', note='주말반 진행',
-         address=None, phone=None, masters=[YONGHO, JIYOUNG], photos=10),
+         flag='kr', country='대한민국', note='교육생 전용 연습 공간',
+         address='서울시 중구 세종대로 136, 서울파이낸스센터 지하 1층 (버핏그라운드 피트니스 센터 내부)',
+         phone='010-9446-3238',
+         practice=True, masters=[], photos=10),
     dict(slug='seocho', name='바디녹스 서초센터', short='서초센터',
          flag='kr', country='대한민국', note='주말반 진행',
          address=None, phone=None, masters=blank(1), photos=10),

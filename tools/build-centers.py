@@ -182,6 +182,76 @@ FOOT = '''</main>
 '''.replace('{IG}', IG)
 
 
+PRACTICE_SECTION = """
+  <!-- ============ 연습 공간 ============ -->
+  <section class="section section--tint" id="practice">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">WHY IT MATTERS</p>
+        <h2 class="section__title">
+          300시간을 채울 공간이<br />
+          이미 준비되어 있습니다
+        </h2>
+        <p class="section__desc">
+          BPM 지도자 과정은 총 450시간입니다. 강의 16일(128시간)을 빼면
+          나머지는 관찰하고, 스스로 연습하고, 직접 가르치며 채워야 하는 시간입니다.
+          많은 교육생이 이 시간 앞에서 막힙니다 &mdash; 연습할 기구가 없기 때문입니다.
+          광화문센터는 그 문제를 처음부터 없앱니다.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="feature reveal">
+          <span class="feature__num">01</span>
+          <h3 class="feature__title">로그북을 채우는 공간</h3>
+          <p>
+            관찰 100시간 · 자가연습 100시간 · 티칭연습 100시간.
+            자격 발급에 반드시 필요한 이 시간을 기구가 모두 갖춰진 공간에서 채웁니다.
+            기구를 빌리러 다니거나, 연습할 곳을 찾아 헤맬 필요가 없습니다.
+          </p>
+        </article>
+        <article class="feature reveal">
+          <span class="feature__num">02</span>
+          <h3 class="feature__title">광화문 한복판, 퇴근길에</h3>
+          <p>
+            세종대로 서울파이낸스센터 지하 1층입니다.
+            시청 · 광화문 업무지구 중심이라 퇴근 후 들르기 쉽고,
+            직장을 다니면서 과정을 소화하는 교육생에게 이동 시간이 곧 연습 시간이 됩니다.
+          </p>
+        </article>
+        <article class="feature reveal">
+          <span class="feature__num">03</span>
+          <h3 class="feature__title">피트니스 센터 안에서</h3>
+          <p>
+            버핏그라운드 피트니스 센터 내부에 있습니다.
+            필라테스 기구 연습과 웨이트 · 유산소 운동을 한 공간에서 이어서 할 수 있어,
+            지도자로서 자기 몸을 만드는 시간까지 함께 챙길 수 있습니다.
+          </p>
+        </article>
+        <article class="feature reveal">
+          <span class="feature__num">04</span>
+          <h3 class="feature__title">동료와 함께 티칭 연습</h3>
+          <p>
+            티칭 100시간은 혼자 채울 수 없습니다.
+            같은 기수 동료와 팀을 이뤄 서로 가르치고 피드백하는 연습을 하기에
+            충분한 공간과 기구가 마련되어 있습니다.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout callout--accent reveal">
+        <h3 class="callout__title">이용에 추가 비용이 없습니다</h3>
+        <p>
+          월 구독료 외에 별도 이용료가 없습니다. 운영시간 내에 이용 규칙만
+          지켜주시면 교육 기간 내내 자유롭게 사용하실 수 있습니다.
+          <span class="callout__sub">운영시간과 이용 방법은 아래 연락처로 문의해 주세요.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+"""
+
+
 def master_box(c, m, i):
     slug = c['slug']
     n = i + 1
@@ -232,15 +302,25 @@ def build(c):
       </a>
 
       <div class="apply-head reveal">
-        <p class="eyebrow">BPM CENTER</p>
+        <p class="eyebrow">{eyebrow}</p>
         <h1 class="subhero__title">
           <svg class="flag flag--title" role="img" aria-label="{country}"><use href="#flag-{flag}"/></svg>{name}
         </h1>
-        <p class="subhero__lead">{note} · BPM 커리큘럼으로 동일하게 진행됩니다.</p>
+        <p class="subhero__lead">{lead}</p>
       </div>
     </div>
   </section>
+'''.format(
+        eyebrow='PRACTICE SPACE' if c.get('practice') else 'BPM CENTER',
+        country=c['country'], flag=c['flag'], name=name,
+        lead=('교육생이 자유롭게 연습할 수 있는 전용 공간입니다.'
+              if c.get('practice')
+              else c['note'] + ' · BPM 커리큘럼으로 동일하게 진행됩니다.'))
 
+    if c.get('practice'):
+        s += PRACTICE_SECTION
+    else:
+        s += '''
   <!-- ============ 마스터 강사 ============ -->
   <section class="section section--tint" id="masters">
     <div class="container">
@@ -250,16 +330,18 @@ def build(c):
         <p class="section__desc">이 센터의 교육을 직접 담당하는 마스터 강사입니다.</p>
       </div>
 
-      <div class="mboxes mboxes--{mcount}">
-'''.format(country=c['country'], flag=c['flag'], name=name, note=c['note'], mcount=len(c['masters']))
+      <div class="mboxes mboxes--%d">
+''' % len(c['masters'])
 
-    for i, m in enumerate(c['masters']):
-        s += master_box(c, m, i)
+        for i, m in enumerate(c['masters']):
+            s += master_box(c, m, i)
 
-    s += '''      </div>
+        s += '''      </div>
     </div>
   </section>
+'''
 
+    s += '''
   <!-- ============ 스튜디오 사진 ============ -->
   <section class="section" id="studio">
     <div class="container">
