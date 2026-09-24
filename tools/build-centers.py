@@ -276,8 +276,11 @@ def master_box(c, m, i):
                   '          <li class="mbox__todo">경력 사항 준비 중</li>\n'
                   '        </ul>\n')
 
-    intro = ('        <!-- 마스터 강사 소개글 — 500자 이내로 작성해 주세요 -->\n'
-             '        <p class="mbox__intro mbox__intro--empty">소개글 준비 중입니다. (500자 이내)</p>\n')
+    if m.get('intro'):
+        intro = '        <p class="mbox__intro">%s</p>\n' % m['intro']
+    else:
+        intro = ('        <!-- 마스터 강사 소개글 — 500자 이내로 작성해 주세요 -->\n'
+                 '        <p class="mbox__intro mbox__intro--empty">소개글 준비 중입니다. (500자 이내)</p>\n')
 
     return ('      <article class="mbox reveal">\n'
             + photo
@@ -382,7 +385,8 @@ def build(c):
 
     addr = c['address'] or '<span class="td-empty">추후 공지</span>'
     if c['phone']:
-        tel = '<a href="tel:%s">%s</a>' % (c['phone'].replace('-', ''), c['phone'])
+        href = c.get('tel') or c['phone'].replace('-', '')
+        tel = '<a href="tel:%s">%s</a>' % (href, c['phone'])
     else:
         tel = '<span class="td-empty">추후 공지</span>'
 
