@@ -394,7 +394,6 @@ def build(c):
                   '              </div>\n'
                   '            </figure>\n' % (i, c['slug'], i))
 
-    ig = c.get('ig') or IG
     kind, url = c.get('chat') or ('kakao', KAKAO)
     if kind == 'line':
         chat = ('            <a class="btn btn--line" href="%s" target="_blank" rel="noopener noreferrer">\n'
@@ -452,7 +451,7 @@ def build(c):
       </div>
     </div>
   </section>
-'''.format(addr=addr, tel=tel, CHAT=chat, IG=ig)
+'''.format(addr=addr, tel=tel, CHAT=chat, IG=IG)
 
     s += FOOT.replace('{V}', V)
     path = os.path.join(OUT, 'center-%s.html' % slug)

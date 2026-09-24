@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-V = '55'
+V = '56'
 IG = 'https://www.instagram.com/bpm.bodynox'
 KAKAO = 'https://pf.kakao.com/_xexjbUT/chat'
 LINE_BANGKOK = 'https://lin.ee/ONPqSSP'
-IG_BANGKOK = 'https://www.instagram.com/thewaypilates_official'
 
 YONGHO = dict(
     name='임용호', role='대표', field='BPM Founder',
@@ -82,6 +81,5 @@ CENTERS = [
                   '<span class="cinfo__sub">BTS 나나(Nana)역 2번 출구 스카이브릿지로 바로 연결됩니다.</span>'),
          phone='080-009-7024', tel='+66800097024',
          chat=('line', LINE_BANGKOK),
-         ig=IG_BANGKOK,
          masters=[HANNA_BKK], photos=8),
 ]
