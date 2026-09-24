@@ -1224,6 +1224,25 @@ table { border-collapse: collapse; width: 100%; }
 }
 .section__head + .table-title { margin-top: 0; }
 
+/* 계산 예시 소제목 */
+.ex__title {
+  margin: 30px 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+}
+.ex__title::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  margin-right: 9px;
+  vertical-align: middle;
+  background: var(--c-accent);
+}
+.table-title + .table-note--lead + .ex__title { margin-top: 24px; }
+
 /* 강조 문단 */
 .callout {
   margin-top: 32px;

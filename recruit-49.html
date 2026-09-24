@@ -24,7 +24,7 @@
   />
 
   <link rel="canonical" href="https://bpm.bodynox.com/recruit-49.html" />
-  <link rel="stylesheet" href="./assets/css/style.css?v=50" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=51" />
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
 </head>
@@ -111,7 +111,7 @@
         </div>
 
         <figure class="subhero__visual reveal">
-          <img src="./assets/img/scene-classroom.jpg?v=50"
+          <img src="./assets/img/scene-classroom.jpg?v=51"
                alt="바디녹스 서울역센터에서 진행되는 지도자 교육 현장"
                width="1500" height="1000" />
         </figure>
@@ -463,7 +463,8 @@
       <h3 class="table-title reveal">포함 항목별 단가</h3>
       <p class="table-note table-note--lead reveal">
         중단 시 환급액을 투명하게 계산할 수 있도록 각 항목의 단가를 미리 공개합니다.
-        환급액은 <strong>이미 결제한 금액에서 제공받은 항목의 금액을 공제한 나머지</strong>입니다.
+        환급액은 <strong>그동안 결제한 금액에서 제공받은 항목의 금액을 공제한 나머지</strong>입니다.
+        월 단위로 끊어서 계산하지 않고, 등록 시점부터 누적으로 계산합니다.
       </p>
       <div class="table-wrap reveal">
         <table class="schedule-table">
@@ -520,17 +521,27 @@
       <div class="callout reveal">
         <h3 class="callout__title">환급액 계산 방식</h3>
         <p>
-          <strong>환급액 = 이미 결제한 금액 &minus; 제공받은 항목의 금액</strong>
+          <strong>환급액 = 그동안 결제한 금액의 합계 &minus; 제공받은 항목의 금액 합계</strong>
+          <span class="callout__sub">
+            두 금액 모두 등록 시점부터 누적으로 더합니다. 달마다 초기화되지 않습니다.
+          </span>
         </p>
         <ul class="legal__inline">
-          <li><strong>대면 강의</strong> — 참석한 교육일 수 &times; 1일 단가</li>
+          <li><strong>대면 강의</strong> — 중단 시점까지 <strong>진행된 교육일 수</strong> &times; 1일 단가</li>
           <li><strong>온라인 강좌 · 교재</strong> — 제공(열람 가능) 개시 후에는 공제 대상</li>
           <li><strong>그룹수업 · 마스터 1:1</strong> — 이용한 횟수 &times; 회당 단가</li>
           <li><strong>자격시험</strong> — 응시 전이면 공제하지 않습니다</li>
         </ul>
         <p>
+          대면 강의는 정원이 정해진 기수제 수업으로, 한 기수가 같은 일정을 함께 진행합니다.
+          그 자리는 등록과 동시에 확보되고 수업은 결석 여부와 무관하게 열리므로,
+          <strong>결석한 교육일도 진행된 것으로 보아 공제합니다.</strong>
+          문화센터 강좌와 같은 방식입니다.
+        </p>
+        <p>
           환급액은 0원 미만이 되지 않으며, 제공받은 금액이 결제액을 초과하는 경우에도
           <strong>초과분은 별도로 청구하지 않습니다.</strong>
+          다만 그 초과분은 이후 달의 누적 계산에 그대로 반영됩니다.
           <span class="callout__sub">
             ※ 결제하지 않은 다음 달 이후의 교육비는 애초에 청구되지 않으므로 환급 대상이 아닙니다.<br />
             ※ 관련 법령에서 정한 기준이 위 기준보다 수강생에게 유리한 경우 법령 기준을 따릅니다.
@@ -539,9 +550,14 @@
       </div>
 
       <h3 class="table-title reveal">계산 예시</h3>
+      <p class="table-note table-note--lead reveal">
+        10월 15일에 첫 결제, 30일 뒤인 11월 14일에 2개월차가 결제되는 경우를 가정했습니다.
+      </p>
+
+      <h4 class="ex__title reveal">예시 1 &middot; 1개월차에 중단</h4>
       <div class="table-wrap reveal">
         <table class="schedule-table">
-          <caption class="sr-only">환급액 계산 예시</caption>
+          <caption class="sr-only">1개월차 중단 시 환급액 계산 예시</caption>
           <thead>
             <tr>
               <th scope="col">구분</th>
@@ -551,7 +567,7 @@
           </thead>
           <tbody>
             <tr>
-              <td data-label="구분">결제</td>
+              <td data-label="구분">결제 누계</td>
               <td data-label="내역">1개월차 교육비</td>
               <td data-label="금액">789,000원</td>
             </tr>
@@ -567,14 +583,65 @@
             </tr>
             <tr>
               <td data-label="구분"><strong>환급액</strong></td>
-              <td data-label="내역">공제 합계 1,008,500원</td>
+              <td data-label="내역">공제 누계 1,008,500원</td>
               <td data-label="금액"><strong>0원</strong></td>
             </tr>
           </tbody>
         </table>
       </div>
       <p class="table-note reveal">
-        위 예시에서 제공받은 금액이 결제액을 219,500원 초과하지만, 초과분은 청구하지 않습니다.
+        제공받은 금액이 결제액을 <strong>219,500원</strong> 초과하지만 청구하지 않습니다.
+        이 초과분은 예시 2의 누적 계산에 반영됩니다.
+      </p>
+
+      <h4 class="ex__title reveal">예시 2 &middot; 2개월차에 중단</h4>
+      <div class="table-wrap reveal">
+        <table class="schedule-table">
+          <caption class="sr-only">2개월차 중단 시 환급액 계산 예시</caption>
+          <thead>
+            <tr>
+              <th scope="col">구분</th>
+              <th scope="col">내역</th>
+              <th scope="col">금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="구분">결제 누계</td>
+              <td data-label="내역">1~2개월차 교육비 (789,000원 &times; 2)</td>
+              <td data-label="금액">1,578,000원</td>
+            </tr>
+            <tr>
+              <td data-label="구분">공제</td>
+              <td data-label="내역">온라인 강좌 (제공 완료)</td>
+              <td data-label="금액">&minus; 210,000원</td>
+            </tr>
+            <tr>
+              <td data-label="구분">공제</td>
+              <td data-label="내역">대면 강의 6일 (모듈 2까지 진행)</td>
+              <td data-label="금액">&minus; 1,197,750원</td>
+            </tr>
+            <tr>
+              <td data-label="구분">공제</td>
+              <td data-label="내역">교재 2권 수령</td>
+              <td data-label="금액">&minus; 40,000원</td>
+            </tr>
+            <tr>
+              <td data-label="구분">공제</td>
+              <td data-label="내역">그룹수업 3회 이용</td>
+              <td data-label="금액">&minus; 60,000원</td>
+            </tr>
+            <tr>
+              <td data-label="구분"><strong>환급액</strong></td>
+              <td data-label="내역">공제 누계 1,507,750원</td>
+              <td data-label="금액"><strong>70,250원</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note reveal">
+        1개월차 초과분 219,500원이 누적에 포함되어 있습니다.
+        2개월차만 따로 계산하면 289,750원이 되지만, 누적 방식에서는 70,250원입니다.
       </p>
     </div>
   </section>
@@ -623,9 +690,11 @@
               월별 교육 등록이므로 남은 달의 교육비는 애초에 결제되지 않습니다.
               <strong>다음 교육월 결제일 10일 전까지</strong> 알려주시면 위약금 없이 중단되고,
               이후 교육비는 청구되지 않습니다.
-              이미 결제한 당월분은 진행 정도에 따라 환급됩니다.
-              (교육 시작 전 전액 / 1&#47;3 경과 전 2&#47;3 / 1&#47;2 경과 전 1&#47;2 /
-              1&#47;2 경과 후 환급 없음) 관련 법령 기준이 더 유리한 경우 법령을 따릅니다.
+              이미 결제한 금액은 <strong>그동안 제공받은 항목의 금액을 공제한 나머지</strong>를
+              환급합니다. 대면 강의는 진행된 교육일 수, 그룹수업과 마스터 1:1 수업은 이용한 횟수,
+              교재는 수령한 권수 기준이며 온라인 강좌는 수강 개시 후 공제됩니다.
+              항목별 단가와 계산 예시는 <a href="#tuition">교육비</a> 항목에 모두 공개해 두었습니다.
+              관련 법령 기준이 더 유리한 경우 법령을 따릅니다.
             </p>
           </div>
         </details>
@@ -835,6 +904,6 @@
 
 <a class="float-cta" href="#apply" aria-label="교육 신청하기">교육 신청</a>
 
-<script src="./assets/js/main.js?v=50" defer></script>
+<script src="./assets/js/main.js?v=51" defer></script>
 </body>
 </html>
