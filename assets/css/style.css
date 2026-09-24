@@ -758,6 +758,12 @@ table { border-collapse: collapse; width: 100%; }
   font-weight: 600;
   letter-spacing: -0.03em;
 }
+.factlist__sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--c-text-weak);
+}
 
 /* 신청 페이지 상단 */
 .subhero--narrow { padding-bottom: 20px; }
@@ -1304,6 +1310,114 @@ table { border-collapse: collapse; width: 100%; }
   margin-top: -1px;
 }
 .faq__body p { font-size: 14.5px; line-height: 1.9; color: var(--c-text-mid); }
+
+/* 총액 안내 */
+.totalbox {
+  margin-top: 32px;
+  padding: 26px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 18px;
+}
+.totalbox__rows { display: grid; gap: 12px; }
+.totalbox__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 15px;
+}
+.totalbox__row dt { color: var(--c-text-mid); }
+.totalbox__row dd { font-weight: 600; letter-spacing: -0.02em; }
+.totalbox__row--sum {
+  padding-top: 12px;
+  border-top: 1px solid var(--c-line-soft);
+}
+.totalbox__row--sum dt { color: var(--c-text); font-weight: 600; }
+.totalbox__row--sum dd {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--c-accent-dk);
+}
+.totalbox__note {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--c-text-weak);
+}
+
+/* 450시간 구성 */
+.hours { margin-top: 36px; }
+.hours__title {
+  font-size: clamp(20px, 4.4vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.4;
+}
+.hours__desc {
+  margin-top: 12px;
+  max-width: 44em;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+.hours__bar {
+  display: flex;
+  height: 14px;
+  margin-top: 26px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--c-line-soft);
+}
+.hours__seg { display: block; height: 100%; }
+.hours__seg--face { background: var(--c-dark); }
+.hours__seg--self { background: var(--c-accent); }
+.hours__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--c-text-mid);
+}
+.hours__legend li { display: flex; align-items: center; gap: 8px; }
+.hours__legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+.hours__legend i.is-face { background: var(--c-dark); }
+.hours__legend i.is-self { background: var(--c-accent); }
+.hours__legend strong { color: var(--c-text); font-weight: 600; }
+
+.hours__grid {
+  margin-top: 28px;
+  display: grid;
+  gap: 10px;
+}
+.hours__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+}
+.hours__item dt { font-size: 14.5px; letter-spacing: -0.02em; }
+.hours__item dd {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.hours__item--face { border-left: 3px solid var(--c-dark); }
+.hours__item--self { border-left: 3px solid var(--c-accent); }
 
 /* 본문 중간 등록 유도 밴드 */
 .cta-inline {
@@ -2231,6 +2345,9 @@ img.photo-slot--wide::after { content: none; }
 
   .form-embed iframe { height: 2100px; }
   .feebox { grid-template-columns: auto 1fr; gap: 32px; align-items: center; padding: 28px 32px; }
+
+  .totalbox { padding: 28px 34px; }
+  .hours__grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
   .cta-inline {
     grid-template-columns: 1fr auto;
