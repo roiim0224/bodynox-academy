@@ -1058,6 +1058,8 @@ table { border-collapse: collapse; width: 100%; }
   color: var(--c-accent-dk);
 }
 .paypick__go span { margin-left: 6px; }
+.paypick__item--soon { background: var(--c-bg-tint); border-style: dashed; }
+.paypick__item--soon .paypick__go { color: var(--c-text-mid); font-weight: 500; }
 @media (min-width: 600px) {
   .paypick { grid-template-columns: 1fr 1fr; }
 }
