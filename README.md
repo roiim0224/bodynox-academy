@@ -229,3 +229,27 @@ DNS 확인이 끝나면 `Enforce HTTPS` 를 체크합니다.
 - `CNAME`
 - 각 HTML 의 `<link rel="canonical">`, `<meta property="og:url">`
 - `robots.txt`, `sitemap.xml`
+
+## 도메인 전환 (bpm.bodynox.com)
+
+DNS 가 연결된 **뒤에** 아래 한 줄을 실행하면 됩니다.
+
+```bash
+bash tools/go-live-domain.sh
+```
+
+DNS 응답이 없거나 목표가 다르면 스크립트가 스스로 중단합니다.
+(CNAME 을 먼저 커밋하면 사이트가 내려갑니다 — 이미 한 번 겪은 실수입니다.)
+
+개발자에게 전달할 레코드:
+
+| 항목 | 값 |
+|---|---|
+| Type | CNAME |
+| Name | `bpm` |
+| Target | `roiim0224.github.io` |
+| Proxy status | **DNS only** (회색 구름) |
+| TTL | Auto |
+
+스크립트 실행 후 GitHub Settings > Pages 에서 Custom domain 에
+`bpm.bodynox.com` 을 입력하고, 인증서 발급이 끝나면 Enforce HTTPS 를 켭니다.
