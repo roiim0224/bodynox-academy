@@ -1050,6 +1050,40 @@ table { border-collapse: collapse; width: 100%; }
   line-height: 1.75;
   color: var(--c-accent-dk);
 }
+/* 강조 문단 안의 인라인 목록 */
+.legal__inline {
+  margin: 14px 0;
+  display: grid;
+  gap: 8px;
+}
+.legal__inline li {
+  position: relative;
+  padding-left: 15px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--c-text-mid);
+}
+.legal__inline li::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-accent);
+}
+.legal__inline strong { color: var(--c-text); font-weight: 600; }
+
+.table-note--lead {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--c-text-mid);
+}
+.table-note--lead strong { color: var(--c-text); font-weight: 600; }
+
 .legal__dl {
   margin-top: 14px;
   display: grid;
