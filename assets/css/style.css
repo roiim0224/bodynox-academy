@@ -24,6 +24,7 @@
   --c-accent-bg: #FAE6EC;  /* 아주 옅은 브랜드 틴트 */
   --c-kakao:     #FEE500;
   --c-kakao-txt: #191600;
+  --c-line-green: #06C755;
 
   /* type */
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
@@ -188,6 +189,13 @@ table { border-collapse: collapse; width: 100%; }
   box-shadow: 0 10px 26px rgba(254, 229, 0, .3);
 }
 .btn--kakao:hover { background: #F5DC00; }
+
+.btn--line {
+  background: var(--c-line-green);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(6, 199, 85, .26);
+}
+.btn--line:hover { background: #05B34C; }
 
 .btn--sm { padding: 11px 20px; font-size: 14px; }
 .btn--block { display: flex; width: 100%; }
