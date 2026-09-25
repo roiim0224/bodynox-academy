@@ -1,4 +1,9 @@
 /* ==========================================================================
+   웹 분석 도구  —  ID 를 이 파일 한 곳에서만 관리합니다.
+
+   · Google Analytics 4  : GA_ID
+   · 네이버 애널리틱스     : NAVER_ID
+
    Google Analytics 4  —  측정 ID 한 곳만 바꾸면 전 페이지에 적용됩니다.
 
    · 측정 ID 는 analytics.google.com > 관리 > 데이터 스트림 에서 확인합니다.
@@ -25,6 +30,23 @@
 
     gtag('js', new Date());
     gtag('config', GA_ID);
+  }
+
+  /* ---------- 네이버 애널리틱스 ----------
+     GA4 가 주지 않는 네이버 검색 키워드를 보기 위해 함께 씁니다.
+     analytics.naver.com > 설정 > 사이트 등록 에서 받은 wa 값입니다. */
+  var NAVER_ID = '2d9c87b788ac80';
+
+  if (/^[0-9a-f]{10,24}$/i.test(NAVER_ID)) {
+    var n = document.createElement('script');
+    n.async = true;
+    n.src = 'https://wcs.pstatic.net/wcslog.js';
+    n.onload = function () {
+      if (!window.wcs_add) window.wcs_add = {};
+      window.wcs_add.wa = NAVER_ID;
+      if (window.wcs) window.wcs_do();
+    };
+    document.head.appendChild(n);
   }
 
   /* 다른 스크립트(main.js)에서 쓰는 공용 전송 함수 */
