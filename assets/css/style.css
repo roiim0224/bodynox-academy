@@ -385,6 +385,14 @@ table { border-collapse: collapse; width: 100%; }
   line-height: 1.5;
 }
 
+.hero__foot {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--c-text-weak);
+}
+.hero__foot strong { color: var(--c-text-mid); font-weight: 600; }
+
 .hero__visual { position: relative; }
 .hero__frame {
   position: relative;
