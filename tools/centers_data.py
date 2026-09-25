@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-V = '77'
+V = '78'
 IG = 'https://www.instagram.com/bpm.bodynox'
 KAKAO = 'https://pf.kakao.com/_xexjbUT/chat'
 LINE_BANGKOK = 'https://lin.ee/ONPqSSP'
@@ -65,13 +65,13 @@ CENTERS = [
          address='서울시 중구 세종대로 136, 서울파이낸스센터 지하 1층 (버핏그라운드 피트니스 센터 내부)',
          phone='010-9446-3238',
          practice=True, masters=[], photos=10),
-    dict(slug='seocho', seo='바디녹스 서초센터 — BPM 지도자 교육 주말반이 진행되는 교육센터입니다. 주소와 연락처는 확정 후 공지됩니다.', name='바디녹스 서초센터', short='서초센터',
+    dict(slug='seocho', hidden=True, seo='바디녹스 서초센터 — BPM 지도자 교육 주말반이 진행되는 교육센터입니다. 주소와 연락처는 확정 후 공지됩니다.', name='바디녹스 서초센터', short='서초센터',
          flag='kr', country='대한민국', note='주말반 진행',
          address=None, phone=None, masters=blank(1), photos=10),
-    dict(slug='gangbuk', seo='바디녹스 강북센터 — BPM 지도자 교육 주말반이 진행되는 교육센터입니다. 주소와 연락처는 확정 후 공지됩니다.', name='바디녹스 강북센터', short='강북센터',
+    dict(slug='gangbuk', hidden=True, seo='바디녹스 강북센터 — BPM 지도자 교육 주말반이 진행되는 교육센터입니다. 주소와 연락처는 확정 후 공지됩니다.', name='바디녹스 강북센터', short='강북센터',
          flag='kr', country='대한민국', note='주말반 진행',
          address=None, phone=None, masters=blank(1), photos=10),
-    dict(slug='jakarta', seo='자카르타센터 — 인도네시아 자카르타에서 국내와 동일한 BPM 커리큘럼으로 진행되는 해외 교육센터입니다.', name='자카르타센터', short='자카르타센터',
+    dict(slug='jakarta', hidden=True, seo='자카르타센터 — 인도네시아 자카르타에서 국내와 동일한 BPM 커리큘럼으로 진행되는 해외 교육센터입니다.', name='자카르타센터', short='자카르타센터',
          flag='id', country='인도네시아', note='주말반 진행',
          address=None, phone=None, masters=blank(3), photos=10),
     dict(slug='bangkok', seo='BPM Bangkok Center — 태국 방콕 O-NES Tower, BTS 나나역 직결. 홍한나 마스터가 담당하는 BPM 지도자 교육 해외 교육센터입니다.', name='BPM Bangkok Center', short='BPM Bangkok Center',

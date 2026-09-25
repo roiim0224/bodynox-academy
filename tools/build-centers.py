@@ -343,8 +343,8 @@ def master_box(c, m, i):
     if m.get('intro'):
         intro = '        <p class="mbox__intro">%s</p>\n' % m['intro']
     else:
-        intro = ('        <!-- 마스터 강사 소개글 — 500자 이내로 작성해 주세요 -->\n'
-                 '        <p class="mbox__intro mbox__intro--empty">소개글 준비 중입니다. (500자 이내)</p>\n')
+        # 소개글이 없으면 '준비 중' 문구를 노출하지 않고 통째로 비운다
+        intro = '        <!-- 마스터 강사 소개글 — 500자 이내로 작성하면 여기에 표시됩니다 -->\n'
 
     return ('      <article class="mbox reveal">\n'
             + photo
@@ -358,6 +358,10 @@ def build(c):
     slug, name = c['slug'], c['name']
     desc = c.get('seo') or ('%s — BPM 지도자 교육이 진행되는 바디녹스 아카데미 교육센터입니다.' % name)
     s = HEAD.format(name=name, desc=desc, slug=slug, V=V)
+    if c.get('hidden'):
+        # 자료가 준비되지 않은 센터 — 목록·사이트맵에서 빼고 색인도 막는다
+        s = s.replace('<meta name="theme-color"',
+                      '<meta name="robots" content="noindex, nofollow" />\n  <meta name="theme-color"', 1)
     s = s.replace('</head>', ld(c, name, desc) + '</head>', 1)
 
     # ── 상단 ──
