@@ -38,20 +38,52 @@
     gtag('event', name, params || {});
   };
 
-  /* ---------- 토스 결제 버튼 클릭 ---------- */
+  /* 버튼이 페이지 어디에 있었는지 — 가까운 조상으로 판별 */
+  var SPOTS = [
+    ['.nav__cta', '헤더'],
+    ['.site-header', '헤더'],
+    ['.hero__actions', '히어로'],
+    ['.subhero__actions', '상단'],
+    ['.cta-inline', '본문 중간 CTA'],
+    ['.contact__actions', '문의 섹션'],
+    ['#apply', '하단 신청 섹션'],
+    ['.intake', '기수 카드'],
+    ['.card', '과정 카드'],
+    ['.section--dark', '하단 어두운 섹션'],
+    ['.site-footer', '푸터']
+  ];
+
+  function spotOf(el) {
+    for (var i = 0; i < SPOTS.length; i++) {
+      if (el.closest(SPOTS[i][0])) return SPOTS[i][1];
+    }
+    return '기타';
+  }
+
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
-    if (a.href.indexOf('buy.tosspayments.com') === -1) return;
 
-    /* 어느 기수 카드에서 눌렀는지 — .paypick__no 텍스트를 쓴다 */
-    var label = a.querySelector('.paypick__no');
-    var intake = label ? label.textContent.trim() : '(미상)';
+    /* ---------- 토스 결제 버튼 클릭 ---------- */
+    if (a.href.indexOf('buy.tosspayments.com') !== -1) {
+      /* 어느 기수 카드에서 눌렀는지 — .paypick__no 텍스트를 쓴다 */
+      var label = a.querySelector('.paypick__no');
+      window.bpmTrack('payment_click', {
+        intake: label ? label.textContent.trim() : '(미상)',
+        link_url: a.href,
+        page_path: location.pathname
+      });
+      return;
+    }
 
-    window.bpmTrack('payment_click', {
-      intake: intake,
-      link_url: a.href,
-      page_path: location.pathname
-    });
+    /* ---------- 교육 신청 버튼 클릭 ---------- */
+    if (/\/apply\.html(?:[?#]|$)/.test(a.pathname + a.search + a.hash) &&
+        !/\/apply\.html$/.test(location.pathname)) {
+      window.bpmTrack('apply_click', {
+        spot: spotOf(a),
+        label: (a.textContent || '').replace(/\s+/g, ' ').trim(),
+        page_path: location.pathname
+      });
+    }
   });
 })();
