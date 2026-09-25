@@ -79,6 +79,9 @@ HEAD = '''<!DOCTYPE html>
   <link rel="stylesheet" href="./assets/css/style.css?v={V}" />
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
+
+  <!-- Google Analytics 4 -->
+  <script src="./assets/js/analytics.js?v={V}"></script>
 </head>
 <body>
 

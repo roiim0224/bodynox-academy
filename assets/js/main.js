@@ -296,6 +296,14 @@
       unmount();
       show(done);
       done.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      // 구글폼은 다른 도메인이라 제출을 직접 읽을 수 없습니다.
+      // 폼이 응답 페이지로 이동하며 발생하는 두 번째 load 를 제출로 봅니다.
+      if (window.bpmTrack) {
+        window.bpmTrack('form_submit', {
+          form: '참가신청서',
+          page_path: location.pathname
+        });
+      }
     }
 
     openBtn.addEventListener('click', openForm);
