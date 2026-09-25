@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX';   // ← 실제 측정 ID 로 교체
+  var GA_ID = 'G-C2H8VEPDVC';
 
   /* 자리표시자면 아무것도 하지 않는다 */
   var READY = /^G-[A-Z0-9]{6,12}$/.test(GA_ID) && GA_ID.indexOf('XXXX') === -1;
