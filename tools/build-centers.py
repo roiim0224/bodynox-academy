@@ -341,7 +341,9 @@ def master_box(c, m, i):
                   '        </ul>\n')
 
     if m.get('intro'):
-        intro = '        <p class="mbox__intro">%s</p>\n' % m['intro']
+        # 줄바꿈으로 구분된 여러 문단을 각각 <p> 로 낸다
+        paras = [x.strip() for x in m['intro'].strip().split('\n') if x.strip()]
+        intro = ''.join('        <p class="mbox__intro">%s</p>\n' % x for x in paras)
     else:
         # 소개글이 없으면 '준비 중' 문구를 노출하지 않고 통째로 비운다
         intro = '        <!-- 마스터 강사 소개글 — 500자 이내로 작성하면 여기에 표시됩니다 -->\n'

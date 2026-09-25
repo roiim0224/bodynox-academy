@@ -2007,6 +2007,12 @@ img.photo-slot--wide::after { content: none; }
   line-height: 1.9;
   color: var(--c-text-mid);
 }
+/* 소개글이 여러 문단이면 구분선은 첫 문단에만 */
+.mbox__intro + .mbox__intro {
+  margin-top: 12px;
+  padding-top: 0;
+  border-top: 0;
+}
 .mbox__intro--empty { color: var(--c-text-weak); }
 
 /* 센터 상세 — 스튜디오 사진 슬라이더 */
