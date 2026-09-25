@@ -35,7 +35,7 @@
   /* ---------- 네이버 애널리틱스 ----------
      GA4 가 주지 않는 네이버 검색 키워드를 보기 위해 함께 씁니다.
      analytics.naver.com > 설정 > 사이트 등록 에서 받은 wa 값입니다. */
-  var NAVER_ID = '2d9c87b788ac80';
+  var NAVER_ID = '1221efa822081f0';
 
   if (/^[0-9a-f]{10,24}$/i.test(NAVER_ID)) {
     var n = document.createElement('script');
