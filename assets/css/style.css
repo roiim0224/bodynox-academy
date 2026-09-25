@@ -1149,6 +1149,29 @@ table { border-collapse: collapse; width: 100%; }
 .legal__dl > div { display: flex; gap: 16px; font-size: 15px; }
 .legal__dl dt { flex: 0 0 116px; color: var(--c-text-weak); }
 .legal__dl dd { color: var(--c-text); }
+/* 국외 이전 항목 카드 */
+.xfer-list { margin-top: 16px; display: grid; gap: 14px; }
+.xfer {
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-line);
+  background: var(--c-surface);
+}
+.xfer__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+}
+.xfer .legal__dl { margin-top: 12px; }
+.xfer .legal__dl > div { font-size: 14.5px; align-items: baseline; }
+.xfer .legal__dl dt { flex: 0 0 104px; }
+@media (max-width: 599px) {
+  .xfer .legal__dl > div { flex-direction: column; gap: 2px; }
+  .xfer .legal__dl dt { flex: none; font-size: 13px; }
+}
+
 .legal__date {
   margin-top: 40px;
   padding-top: 20px;

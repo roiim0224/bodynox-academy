@@ -31,7 +31,7 @@
   <meta name="twitter:title" content="개인정보처리방침 | BODYNOX ACADEMY" />
   <meta name="twitter:description" content="(주)바디녹스인터내셔널 개인정보처리방침 — 개인정보의 수집 항목, 이용 목적, 보유 기간과 정보주체의 권리를 안내합니다." />
   <meta name="twitter:image" content="https://bpm.bodynox.com/assets/img/og-cover.jpg" />
-  <link rel="stylesheet" href="./assets/css/style.css?v=68" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=70" />
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
 </head>
@@ -77,6 +77,8 @@
       </a>
 
       <!-- TODO: 공개 전 법률 검토 필요 — 수집 항목·이용 목적·보유 기간은 참가신청서 기준으로 작성됨 -->
+      <!-- TODO: 제4·6·7조의 분석 도구는 실제 설치한 것만 남길 것 (미설치 도구가 적혀 있으면 사실과 다름) -->
+      <!-- TODO: 제11조 개인정보 보호책임자 성명·직위·이메일 추가 -->
       <div class="apply-head reveal">
         <p class="eyebrow">PRIVACY POLICY</p>
         <h1 class="subhero__title">개인정보처리방침</h1>
@@ -100,6 +102,15 @@
           <li><strong>결제 시</strong> — 결제 수단 정보(결제 대행사를 통해 처리되며 회사는 보관하지 않습니다)</li>
           <li><strong>수집 방법</strong> — 홈페이지 참가신청서, 카카오톡 채널 상담, 전화 상담</li>
         </ul>
+        <p>
+          또한 홈페이지 이용 과정에서 아래 정보가 <strong>자동으로 생성되어 수집</strong>될 수 있습니다.
+          이 정보는 특정 개인을 식별할 목적으로 이용하지 않습니다.
+        </p>
+        <ul>
+          <li>접속 IP 주소, 쿠키 식별자, 접속 일시</li>
+          <li>기기 및 브라우저 정보, 운영체제, 화면 크기</li>
+          <li>방문한 페이지, 머문 시간, 클릭 및 스크롤 기록, 유입 경로(검색어 · 광고 · 외부 링크)</li>
+        </ul>
 
         <h2>2. 개인정보의 이용 목적</h2>
         <p>수집한 개인정보는 다음 목적으로만 이용하며, 목적이 변경될 경우 사전에 동의를 받습니다.</p>
@@ -109,6 +120,7 @@
           <li><strong>[필수]</strong> 수료 및 자격 발급 관리, 이수 시간 기록 관리</li>
           <li><strong>[필수]</strong> 민원 처리 및 분쟁 대응</li>
           <li><strong>[선택]</strong> 교육 정보 및 행사 안내 발송(워크숍 · 세미나 · 신규 과정 안내, 교육 영상 및 자료 제공)</li>
+          <li><strong>[선택]</strong> 홈페이지 이용 현황 분석 및 서비스 개선(방문 통계, 화면 개선, 광고 효과 측정)</li>
         </ul>
         <p>
           선택 항목에 동의하지 않아도 교육 신청에는 불이익이 없으며,
@@ -123,49 +135,166 @@
         <ul>
           <li><strong>신청 및 교육 정보</strong> — 교육 종료 후 1년</li>
           <li><strong>[선택] 마케팅 수신 동의 정보</strong> — 동의 철회 시까지</li>
+          <li><strong>[선택] 홈페이지 이용 분석 정보</strong> — 최대 14개월(Google Analytics 데이터 보관 설정 기준). 그 밖의 분석 도구는 각 서비스의 보관 정책을 따릅니다.</li>
           <li>계약 또는 청약철회 등에 관한 기록 — 5년(전자상거래법)</li>
           <li>대금 결제 및 재화 공급에 관한 기록 — 5년(전자상거래법)</li>
           <li>소비자 불만 또는 분쟁 처리에 관한 기록 — 3년(전자상거래법)</li>
         </ul>
 
-        <h2>4. 개인정보의 제3자 제공</h2>
+        <h2>4. 쿠키 등 자동 수집 장치의 운영 및 거부</h2>
+        <p>
+          회사는 방문자에게 더 나은 서비스를 제공하기 위해 이용 정보를 저장하고
+          수시로 불러오는 <strong>쿠키(cookie)</strong>를 사용합니다.
+          쿠키는 방문자의 브라우저에 저장되는 작은 텍스트 파일로,
+          이름 · 연락처 등 직접적인 개인 식별 정보를 담지 않습니다.
+        </p>
+        <p>회사가 이용하는 분석 도구는 다음과 같습니다.</p>
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <caption class="sr-only">홈페이지 이용 분석 도구</caption>
+            <thead>
+              <tr>
+                <th scope="col">도구</th>
+                <th scope="col">제공자</th>
+                <th scope="col">이용 목적</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="도구">Google Analytics 4</td>
+                <td data-label="제공자">Google LLC</td>
+                <td data-label="이용 목적">방문 통계, 유입 경로 및 이용 흐름 분석</td>
+              </tr>
+              <tr>
+                <td data-label="도구">Microsoft Clarity</td>
+                <td data-label="제공자">Microsoft Corporation</td>
+                <td data-label="이용 목적">화면 조작 기록 기반 사용성 분석 및 개선</td>
+              </tr>
+              <tr>
+                <td data-label="도구">네이버 애널리틱스</td>
+                <td data-label="제공자">네이버(주)</td>
+                <td data-label="이용 목적">검색 유입 및 방문 통계 분석</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>쿠키 수집은 거부하실 수 있습니다.</strong>
+          브라우저 설정에서 쿠키를 차단하거나 저장된 쿠키를 삭제하시면 됩니다.
+        </p>
+        <ul>
+          <li><strong>Chrome</strong> — 설정 &gt; 개인 정보 보호 및 보안 &gt; 서드 파티 쿠키</li>
+          <li><strong>Safari</strong> — 설정 &gt; 개인정보 보호 &gt; 쿠키 및 웹 사이트 데이터</li>
+          <li><strong>Edge</strong> — 설정 &gt; 쿠키 및 사이트 권한</li>
+          <li>Google Analytics 수집만 개별적으로 차단하시려면 <a class="td-link" href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하실 수 있습니다.</li>
+        </ul>
+        <p class="legal__notice">
+          쿠키를 차단하셔도 교육 신청 · 상담 · 결제 등 주요 기능은 정상적으로 이용하실 수 있습니다.
+          다만 일부 화면의 표시 상태가 저장되지 않을 수 있습니다.
+        </p>
+
+        <h2>5. 개인정보의 제3자 제공</h2>
         <p>
           회사는 정보주체의 개인정보를 제2조에서 명시한 범위를 초과하여 이용하거나
           제3자에게 제공하지 않습니다. 다만 법령에 근거가 있거나 수사기관의 적법한 요청이 있는
           경우에는 예외로 합니다.
         </p>
 
-        <h2>5. 개인정보 처리의 위탁</h2>
+        <h2>6. 개인정보 처리의 위탁</h2>
         <p>
-          회사는 원활한 서비스 제공을 위해 아래와 같이 개인정보 처리 업무를 위탁할 수 있으며,
+          회사는 원활한 서비스 제공을 위해 아래와 같이 개인정보 처리 업무를 위탁하고 있으며,
           위탁 계약 시 개인정보 보호 관련 사항을 명시하고 관리 · 감독합니다.
         </p>
-        <ul>
-          <li>결제 처리 — 결제 대행사</li>
-          <li>상담 채널 운영 — 카카오톡 채널</li>
-          <li>신청서 접수 및 보관 — 구글 폼</li>
-        </ul>
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <caption class="sr-only">개인정보 처리 위탁 현황</caption>
+            <thead>
+              <tr>
+                <th scope="col">수탁자</th>
+                <th scope="col">위탁 업무</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="수탁자">토스페이먼츠(주)</td>
+                <td data-label="위탁 업무">교육비 결제 처리</td>
+              </tr>
+              <tr>
+                <td data-label="수탁자">(주)카카오</td>
+                <td data-label="위탁 업무">카카오톡 채널 상담 운영</td>
+              </tr>
+              <tr>
+                <td data-label="수탁자">Google LLC</td>
+                <td data-label="위탁 업무">참가신청서 접수 및 보관(Google Forms), 홈페이지 이용 분석</td>
+              </tr>
+              <tr>
+                <td data-label="수탁자">Microsoft Corporation</td>
+                <td data-label="위탁 업무">홈페이지 사용성 분석</td>
+              </tr>
+              <tr>
+                <td data-label="수탁자">네이버(주)</td>
+                <td data-label="위탁 업무">검색 유입 및 방문 통계 분석</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <h2>6. 정보주체의 권리와 행사 방법</h2>
+        <h2>7. 개인정보의 국외 이전</h2>
+        <p>
+          회사는 아래와 같이 개인정보를 국외로 이전하고 있습니다.
+          정보주체는 국외 이전을 거부할 수 있으며, 거부하시려면 제4조의 방법으로
+          쿠키 수집을 차단하시거나 제11조의 연락처로 요청해 주시기 바랍니다.
+        </p>
+        <div class="xfer-list">
+          <article class="xfer">
+            <h3 class="xfer__name">Google LLC</h3>
+            <dl class="legal__dl">
+              <div><dt>연락처</dt><dd>privacy-support@google.com</dd></div>
+              <div><dt>이전 국가</dt><dd>미국</dd></div>
+              <div><dt>이전 항목</dt><dd>참가신청서 기재 정보, 쿠키 식별자, 접속 IP, 기기 · 브라우저 정보, 방문 · 클릭 기록</dd></div>
+              <div><dt>이전 시기 · 방법</dt><dd>신청서 제출 및 홈페이지 이용 시점에 네트워크를 통해 전송</dd></div>
+              <div><dt>이용 목적</dt><dd>참가신청서 접수 · 보관(Google Forms), 홈페이지 이용 분석(Google Analytics)</dd></div>
+              <div><dt>보유 기간</dt><dd>신청 정보는 제3조의 기간, 이용 분석 정보는 최대 14개월</dd></div>
+            </dl>
+          </article>
+          <article class="xfer">
+            <h3 class="xfer__name">Microsoft Corporation</h3>
+            <dl class="legal__dl">
+              <div><dt>연락처</dt><dd>privacy.microsoft.com</dd></div>
+              <div><dt>이전 국가</dt><dd>미국</dd></div>
+              <div><dt>이전 항목</dt><dd>쿠키 식별자, 접속 IP, 기기 정보, 화면 조작 기록</dd></div>
+              <div><dt>이전 시기 · 방법</dt><dd>홈페이지 이용 시점에 네트워크를 통해 전송</dd></div>
+              <div><dt>이용 목적</dt><dd>홈페이지 사용성 분석(Microsoft Clarity)</dd></div>
+              <div><dt>보유 기간</dt><dd>서비스 제공자의 보관 정책에 따름</dd></div>
+            </dl>
+          </article>
+        </div>
+        <p class="legal__notice">
+          국외 이전을 거부하시더라도 교육 신청 · 상담 · 결제 등 주요 기능 이용에는 제한이 없습니다.
+          다만 참가신청서는 Google Forms 로 운영되므로, 이를 원하지 않으시면
+          카카오톡 채널 또는 전화로 신청하실 수 있습니다.
+        </p>
+
+        <h2>8. 정보주체의 권리와 행사 방법</h2>
         <p>
           정보주체는 언제든지 자신의 개인정보에 대한 열람 · 정정 · 삭제 · 처리정지를 요구할 수 있습니다.
           아래 연락처로 요청하시면 지체 없이 조치하겠습니다.
         </p>
 
-        <h2>7. 개인정보의 파기 절차 및 방법</h2>
+        <h2>9. 개인정보의 파기 절차 및 방법</h2>
         <p>
           보유 기간이 경과하거나 처리 목적이 달성된 개인정보는 지체 없이 파기합니다.
           전자적 파일은 복구할 수 없는 방법으로 삭제하고, 종이 문서는 분쇄하거나 소각합니다.
         </p>
 
-        <h2>8. 개인정보의 안전성 확보 조치</h2>
+        <h2>10. 개인정보의 안전성 확보 조치</h2>
         <ul>
           <li>개인정보 취급 담당자의 최소화 및 교육</li>
           <li>개인정보에 대한 접근 권한 관리</li>
           <li>개인정보가 포함된 문서 및 저장 매체의 잠금 보관</li>
         </ul>
 
-        <h2>9. 개인정보 보호책임자</h2>
+        <h2>11. 개인정보 보호책임자</h2>
         <!-- TODO: 개인정보 보호책임자 성명 · 직위 · 이메일 추가 여부 확인 -->
         <dl class="legal__dl">
           <div><dt>상호</dt><dd>(주)바디녹스인터내셔널</dd></div>
@@ -175,13 +304,17 @@
           <div><dt>문의</dt><dd><a href="tel:01023644499">010-2364-4499</a></dd></div>
         </dl>
 
-        <h2>10. 개인정보처리방침의 변경</h2>
+        <h2>12. 개인정보처리방침의 변경</h2>
         <p>
           본 방침의 내용 추가 · 삭제 및 수정이 있을 경우, 변경 사항의 시행 7일 전부터
           홈페이지를 통해 공지합니다.
         </p>
 
-        <p class="legal__date">시행일자 : 2026년 9월 23일</p>
+        <p class="legal__date">
+          공고일자 : 2026년 9월 25일<br />
+          시행일자 : 2026년 10월 2일<br />
+          <span class="td-empty">이전 방침 시행일 : 2026년 9월 23일</span>
+        </p>
       </div>
     </div>
   </section>
@@ -224,6 +357,6 @@
   </div>
 </footer>
 
-<script src="./assets/js/main.js?v=68" defer></script>
+<script src="./assets/js/main.js?v=70" defer></script>
 </body>
 </html>
