@@ -94,6 +94,7 @@ HTML 을 고쳤으면 태그 짝과 JSON-LD 파싱을 확인한다. 과거에 �
 ```
 GA4                G-C2H8VEPDVC        (assets/js/analytics.js)
 네이버 애널리틱스     1221efa822081f0     (같은 파일)
+메타 픽셀            1758009831974932    (같은 파일 · 데이터 세트명 BPM Academy Website)
 구글 서치콘솔        소유확인 파일 google505bdee7b06aae57.html
 네이버 서치어드바이저  index.html 의 naver-site-verification 메타
 토스 결제 79기       buy.tosspayments.com/products/IGBnLL5poY
@@ -105,13 +106,20 @@ LINE (방콕)         lin.ee/ONPqSSP
 
 맞춤 이벤트 5개가 심겨 있다. 전부 `analytics.js` 의 `bpmTrack()` 을 거친다.
 
-| 이벤트 | 시점 | 주요 매개변수 |
-|---|---|---|
-| `apply_click` | 다른 페이지 → `apply.html` 링크 클릭 | `spot` 버튼 위치 · `label` |
-| `form_open` | 신청서 열기 | `method` (현재 `임베드` 뿐) |
-| `form_submit` | 신청서 제출(추정) | `sec` 체류초 · `loads` iframe 로드수 |
-| `payment_click` | 토스 결제 링크 클릭 | `intake` 기수 |
-| `contact_click` | 상담 채널 클릭 | `channel` 카카오톡 / LINE / 전화 / 인스타그램 |
+| 이벤트 | 시점 | 주요 매개변수 | 메타 표준 이벤트 |
+|---|---|---|---|
+| `apply_click` | 다른 페이지 → `apply.html` 링크 클릭 | `spot` 버튼 위치 · `label` | `ViewContent` |
+| `form_open` | 신청서 열기 | `method` (현재 `임베드` 뿐) | `Lead` |
+| `form_submit` | 신청서 제출(추정) | `sec` 체류초 · `loads` iframe 로드수 | `CompleteRegistration` |
+| `payment_click` | 토스 결제 링크 클릭 | `intake` 기수 | `InitiateCheckout` (789,000 KRW) |
+| `contact_click` | 상담 채널 클릭 | `channel` 카카오톡 / LINE / 전화 / 인스타그램 | `Contact` |
+
+**`payment_click` 을 `Purchase` 로 보내지 않는다.** 토스에서 완료 신호가 돌아오지
+않아 결제하지 않은 클릭까지 매출로 잡힌다. 메타 안에서 ROAS 는 측정할 수 없고
+실제 매출은 토스 정산 내역으로 따로 계산해야 한다.
+
+자동 고급 매칭은 꺼 두었다. 켜려면 `privacy.html` 제7조의 이전 항목을 먼저 고친다.
+**건강 정보(체형 · 통증 · 질환)는 어떤 경우에도 메타로 보내지 않는다.** 약관 위반이다.
 
 **`form_submit` 은 추정값이다.** 구글폼이 다른 도메인이라 제출을 읽을 수 없어,
 iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec` 이 지나치게
@@ -210,6 +218,21 @@ iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec`
   맞춤 측정기준으로 등록해야 보고서에서 쪼개 볼 수 있다
 - 구글폼 응답 수와 GA4 `form_submit` 수 대조 (추정 정확도 확인)
 - 환급 계산 방식 법률 검토 (결석일 공제 · 온라인 즉시 공제가 법정 기준보다 불리할 소지)
+
+**메타 광고 (2026-09-27 픽셀 설치)**
+- 픽셀 동작은 `Test events` 로 확인 완료 — PageView · Lead · CompleteRegistration ·
+  InitiateCheckout 전부 `Processed`
+- 남은 준비: **광고 계정에 데이터 세트 할당**(비즈니스 설정 > 데이터 소스 > 자산 추가),
+  **`bodynox.com` 도메인 인증**(DNS TXT 권장 — 루트를 인증하면 서브도메인이 덮인다).
+  둘 다 안 하면 전환 목록이 비거나 iOS 전환이 샌다
+- 광고는 바로 켜지 않는다. 픽셀 데이터가 쌓여야 최적화·리타겟팅이 작동한다.
+  1~2주 두고 인스타 바이오 UTM 부터 거는 편이 같은 예산으로 성과가 낫다
+- 초기 최적화 기준은 `Purchase` 가 아니라 `Contact` 또는 `Lead` 로 잡는다.
+  광고세트당 주 50건이 있어야 메타 학습이 끝나는데 473만원 상품에서 결제 50건은 안 나온다
+- 광고 문구 금지 — **PMA ITTAP 승인됨**(미승인) · **국가공인**(등록민간자격) ·
+  취업 · 수입 보장 표현(표시광고법)
+- **2026-09-27 테스트 흔적** — 이날 GA4 · 네이버 · 구글폼에 테스트 제출 1건이 섞여 있다.
+  실제 지원자가 아니다. 숫자를 셀 때 이 날짜를 뺀다
 
 **보류**
 - 영문판 — 한국어판 완성 후 진행하기로 함. `/en/` 디렉터리 + hreflang 방식 권장
