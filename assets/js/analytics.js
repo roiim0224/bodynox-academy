@@ -3,7 +3,7 @@
 
    · Google Analytics 4  : GA_ID
    · 네이버 애널리틱스     : NAVER_ID
-   · Meta 픽셀           : META_ID
+   · Meta 픽셀           : META_IDS (여러 개 가능)
 
    Google Analytics 4  —  측정 ID 한 곳만 바꾸면 전 페이지에 적용됩니다.
 
@@ -55,17 +55,28 @@
      business.facebook.com > 이벤트 관리자 > 데이터 세트 에서 확인합니다.
      형식: 15~16자리 숫자. 자리표시자면 아무것도 불러오지 않습니다.
 
-     반드시 비즈니스 포트폴리오 'BPM 코리아'(556954782452067) 소속이어야 한다.
-     개인 광고 계정 소속으로 만들면 비즈니스 설정 목록에 뜨지 않아
-     광고 계정에 붙일 수 없다. 실제로 한 번 겪었다.
+     픽셀은 광고를 집행할 광고 계정과 같은 비즈니스 포트폴리오 소속이어야 한다.
+     개인 광고 계정 소속으로 만들면 비즈니스 설정 목록에 뜨지 않아 붙일 수 없고,
+     신규 포트폴리오는 파트너 공유(Assign partner)가 몇 주간 막혀 있어
+     다른 포트폴리오의 광고 계정에 빌려줄 수도 없다. 둘 다 실제로 겪었다.
+     그래서 포트폴리오별로 픽셀을 따로 두고 여기에 나란히 싣는다.
+
+       2370021590146728  BPM 코리아      · 광고계정 bpm.bpdynox
+       950102224820335   바디녹스 bodynox · 광고계정 877197163504179
+
+     fbq 는 init 한 픽셀 전부로 track 을 보낸다. 배열에 추가만 하면 된다.
 
      자동 고급 매칭(이메일 · 전화번호를 해싱해 메타로 보내는 기능)은 켜지 않았습니다.
      켜려면 개인정보처리방침 제7조의 이전 항목을 먼저 고쳐야 합니다.
 
      건강 정보(체형 · 통증 · 질환)는 어떤 경우에도 메타로 보내지 않습니다.
      메타 비즈니스 도구 약관 위반이며 계정 정지 사유입니다. */
-  var META_ID = '2370021590146728';
-  var META_READY = /^[0-9]{15,16}$/.test(META_ID);
+  var META_IDS = [
+    '2370021590146728',
+    '950102224820335'
+  ].filter(function (id) { return /^[0-9]{15,16}$/.test(id); });
+
+  var META_READY = META_IDS.length > 0;
 
   if (META_READY) {
     /* 메타가 제공하는 기본 스니펫 — fbq 스텁을 먼저 만들고 라이브러리는 비동기로 받습니다 */
@@ -81,7 +92,7 @@
       s.parentNode.insertBefore(t, s);
     }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-    window.fbq('init', META_ID);
+    META_IDS.forEach(function (id) { window.fbq('init', id); });
     window.fbq('track', 'PageView');
   }
 
