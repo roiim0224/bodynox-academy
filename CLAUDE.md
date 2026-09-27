@@ -108,7 +108,7 @@ LINE (방콕)         lin.ee/ONPqSSP
 | 이벤트 | 시점 | 주요 매개변수 |
 |---|---|---|
 | `apply_click` | 다른 페이지 → `apply.html` 링크 클릭 | `spot` 버튼 위치 · `label` |
-| `form_open` | 신청서 열기 | `method` 임베드 / 새 창 |
+| `form_open` | 신청서 열기 | `method` (현재 `임베드` 뿐) |
 | `form_submit` | 신청서 제출(추정) | `sec` 체류초 · `loads` iframe 로드수 |
 | `payment_click` | 토스 결제 링크 클릭 | `intake` 기수 |
 | `contact_click` | 상담 채널 클릭 | `channel` 카카오톡 / LINE / 전화 / 인스타그램 |
@@ -116,7 +116,11 @@ LINE (방콕)         lin.ee/ONPqSSP
 **`form_submit` 은 추정값이다.** 구글폼이 다른 도메인이라 제출을 읽을 수 없어,
 iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec` 이 지나치게
 짧거나 `loads` 가 3 이상이면 오탐일 수 있다. **구글폼 실제 응답 수와 대조해야
-이 숫자를 신뢰할 수 있다.** 새 창으로 나간 제출은 원리상 잡히지 않는다.
+이 숫자를 신뢰할 수 있다.**
+
+신청 경로는 임베드 하나뿐이다. `apply.html` 의 '새 창에서 신청서 열기' 링크는
+`<noscript>` 안에 있어 JS 가 켜진 브라우저에는 DOM 에 존재하지 않는다.
+새 창 링크를 본문으로 꺼내면 그 경로의 제출은 측정할 수 없게 되니 주의한다.
 
 ---
 

@@ -116,17 +116,6 @@
       return;
     }
 
-    /* ---------- 신청서를 새 창에서 열기 ----------
-       임베드가 아니라 새 창으로 나가면 제출을 감지할 방법이 없습니다.
-       이 경로로 몇 명이 빠져나갔는지만이라도 남깁니다. */
-    if (a.href.indexOf('docs.google.com/forms') !== -1) {
-      window.bpmTrack('form_open', {
-        method: '새 창',
-        page_path: location.pathname
-      });
-      return;
-    }
-
     /* ---------- 교육 신청 버튼 클릭 ---------- */
     if (/\/apply\.html(?:[?#]|$)/.test(a.pathname + a.search + a.hash) &&
         !/\/apply\.html$/.test(location.pathname)) {
