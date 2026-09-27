@@ -102,9 +102,36 @@ Flutter 가 올라오면 이 요소가 가려지거나 남을 수 있으니 **�
 ## 4. apex 도메인
 
 `bodynox.com` 에 A 레코드나 ALIAS 가 없다. `www` 로 보내는 리다이렉트를 걸면
-주소창에 `bodynox.com` 만 쳐도 들어온다. 도메인 등록업체 DNS 설정에서 처리한다.
+주소창에 `bodynox.com` 만 쳐도 들어온다.
+
+> **DNS 는 Cloudflare 에서 관리한다.** 등록업체(닷네임코리아) 화면에도 같은 내용의
+> 레코드가 남아 있지만 네임서버가 `miles.ns.cloudflare.com` ·
+> `jasmine.ns.cloudflare.com` 로 위임돼 있어 **등록업체 쪽 값은 조회되지 않는다.**
+> DNS 작업은 전부 Cloudflare 에서 해야 한다. (2026-09-27 확인)
 
 > **만료일 2026-11-11.** 갱신도 함께 확인할 것.
+
+---
+
+## 5. 메타 광고 도메인 인증 TXT (요청)
+
+아카데미 사이트(`bpm.bodynox.com`)로 메타 광고를 돌리려면 메타가 도메인 소유를
+확인해야 한다. **루트 도메인만 인증할 수 있어** 서브도메인으로는 우회가 안 된다.
+
+Cloudflare 의 `bodynox.com` DNS 에 TXT 레코드 하나만 추가하면 된다.
+
+```
+Type     TXT
+Name     @
+Content  facebook-domain-verification=cabt1wmpojkopwg786i8gym8vceirl
+TTL      Auto
+```
+
+- **기존 TXT(`google-site-verification=…`)는 지우지 말 것.** TXT 는 여러 개가 공존한다
+- 사이트 동작에 영향을 주지 않는다. 메일·웹·인증서와 무관한 확인용 값이다
+- 추가 후 알려주면 메타에서 인증 버튼을 눌러 마무리한다
+
+값은 메타 비즈니스 포트폴리오 `BPM 코리아` 에서 발급한 것이라 재발급하면 달라진다.
 
 ---
 
@@ -113,4 +140,4 @@ Flutter 가 올라오면 이 요소가 가려지거나 남을 수 있으니 **�
 1. 1번(머리말) · 2번(robots·sitemap) — 이것만 해도 검색결과 모양이 달라진다
 2. 배포 후 서치콘솔에 `www.bodynox.com` 속성을 만들고 사이트맵 제출
 3. 그다음 3번(링크)
-4. 4번(apex)은 DNS 작업이라 따로 진행
+4. 4번(apex)과 5번(메타 TXT)은 Cloudflare 작업이라 따로 진행
