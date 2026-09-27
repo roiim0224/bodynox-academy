@@ -224,13 +224,28 @@ iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec`
 - 환급 계산 방식 법률 검토 (결석일 공제 · 온라인 즉시 공제가 법정 기준보다 불리할 소지)
 
 **메타 광고 (2026-09-27 픽셀 설치)**
-- 픽셀 동작은 `Test events` 로 확인 완료 — PageView · Lead · CompleteRegistration ·
-  InitiateCheckout 전부 `Processed`
-- 남은 준비: **광고 계정에 데이터 세트 할당**(비즈니스 설정 > 데이터 소스 > 자산 추가),
-  **`bodynox.com` 도메인 인증**(DNS TXT 권장 — 루트를 인증하면 서브도메인이 덮인다).
-  둘 다 안 하면 전환 목록이 비거나 iOS 전환이 샌다
+- 픽셀 동작은 `Test events` 로 확인 완료 — PageView · ViewContent · Lead ·
+  CompleteRegistration · Contact · InitiateCheckout 전부 `Processed`
+- 계정 준비 **완료** — 페이지 `바디녹스 아카데미`(313350112858743) · 인스타 `@bpm.bodynox` ·
+  광고계정 `bpm.bpdynox`(1650184236333483, KRW·한국시간) · 데이터 세트 할당 · 결제수단(Visa) ·
+  사업자 정보. **광고를 올릴 수 있는 상태다.**
+- **남은 것은 `bodynox.com` 도메인 인증뿐이다.** 루트 도메인만 인증할 수 있어
+  `bpm.bodynox.com` 으로는 우회가 안 된다. DNS 가 Cloudflare 이고 계정 접근이 없어
+  본사 사이트 담당자에게 TXT 추가를 요청해 둔 상태다 → `docs/www-bodynox-seo.md` 5번.
+  **없어도 광고는 돌아간다.** iOS 전환이 일부 덜 잡히는 정도다
+- 자동 페이지 정보 수집(`Automatically include more detailed page and product info`)은
+  껐다. 자동 고급 매칭 · 코드 없는 자동 이벤트도 꺼져 있다.
+  사이트가 메타로 보내는 것은 심어 둔 이벤트 6개뿐이며 개인정보처리방침과 일치한다
 - 광고는 바로 켜지 않는다. 픽셀 데이터가 쌓여야 최적화·리타겟팅이 작동한다.
   1~2주 두고 인스타 바이오 UTM 부터 거는 편이 같은 예산으로 성과가 낫다
+- **유사 타겟은 쓸 수 없다.** 인스타 팔로워 95명, 고객 명단 없음(2026-09-27 확인).
+  메타 유사 타겟은 원본 100명 이상이 필요하고 실제로는 1,000명 이상이라야 쓸 만하다.
+  초기는 관심사 타겟(서울·경기 / 25~40 여성 / 필라테스·요가·피트니스) 하나로 시작하고,
+  픽셀 방문자가 쌓이면 리타겟팅 광고세트를 추가한다
+- 캠페인 목표는 **'판매'** 다. '잠재 고객'을 고르면 메타 인스턴트 폼으로 빠져
+  웹사이트 전환 최적화가 안 된다
+- 광고 URL 매개변수 —
+  `utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}`
 - 초기 최적화 기준은 `Purchase` 가 아니라 `Contact` 또는 `Lead` 로 잡는다.
   광고세트당 주 50건이 있어야 메타 학습이 끝나는데 473만원 상품에서 결제 50건은 안 나온다
 - 광고 문구 금지 — **PMA ITTAP 승인됨**(미승인) · **국가공인**(등록민간자격) ·
