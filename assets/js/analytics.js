@@ -3,6 +3,7 @@
 
    · Google Analytics 4  : GA_ID
    · 네이버 애널리틱스     : NAVER_ID
+   · Meta 픽셀           : META_ID
 
    Google Analytics 4  —  측정 ID 한 곳만 바꾸면 전 페이지에 적용됩니다.
 
@@ -49,8 +50,82 @@
     document.head.appendChild(n);
   }
 
+  /* ---------- Meta 픽셀 ----------
+     메타 광고의 전환 최적화 · 리타겟팅에 씁니다.
+     business.facebook.com > 이벤트 관리자 > 데이터 세트 에서 확인합니다.
+     형식: 15~16자리 숫자. 자리표시자면 아무것도 불러오지 않습니다.
+
+     자동 고급 매칭(이메일 · 전화번호를 해싱해 메타로 보내는 기능)은 켜지 않았습니다.
+     켜려면 개인정보처리방침 제7조의 이전 항목을 먼저 고쳐야 합니다.
+
+     건강 정보(체형 · 통증 · 질환)는 어떤 경우에도 메타로 보내지 않습니다.
+     메타 비즈니스 도구 약관 위반이며 계정 정지 사유입니다. */
+  var META_ID = '1758009831974932';
+  var META_READY = /^[0-9]{15,16}$/.test(META_ID);
+
+  if (META_READY) {
+    /* 메타가 제공하는 기본 스니펫 — fbq 스텁을 먼저 만들고 라이브러리는 비동기로 받습니다 */
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    window.fbq('init', META_ID);
+    window.fbq('track', 'PageView');
+  }
+
+  /* GA4 이벤트를 메타 표준 이벤트로 옮겨 함께 보냅니다.
+     메타는 표준 이벤트라야 전환 최적화에 쓸 수 있어 이름을 바꿔 전달합니다. */
+  function metaSend(name, p) {
+    if (!META_READY || !window.fbq) return;
+    p = p || {};
+
+    switch (name) {
+      case 'apply_click':
+        window.fbq('track', 'ViewContent', {
+          content_name: '교육 신청 페이지',
+          content_category: p.spot || ''
+        });
+        break;
+
+      case 'form_open':
+        window.fbq('track', 'Lead', { content_name: '신청서 열기' });
+        break;
+
+      case 'form_submit':
+        /* 추정값입니다(main.js 의 finish()). 구글폼이 다른 도메인이라 제출을 직접 읽을 수
+           없어 iframe 의 두 번째 load 를 제출로 봅니다.
+           구글폼 실제 응답 수와 대조하기 전에는 광고 최적화 기준으로 삼지 마세요. */
+        window.fbq('track', 'CompleteRegistration', { content_name: '참가신청서' });
+        break;
+
+      case 'contact_click':
+        window.fbq('track', 'Contact', { content_category: p.channel || '' });
+        break;
+
+      case 'payment_click':
+        /* 결제 '시작' 입니다. 토스에서 완료 신호가 돌아오지 않아
+           Purchase 는 보내지 않습니다. 보내면 결제하지 않은 클릭까지 매출로 잡힙니다. */
+        window.fbq('track', 'InitiateCheckout', {
+          value: 789000,
+          currency: 'KRW',
+          content_name: p.intake || ''
+        });
+        break;
+    }
+  }
+
   /* 다른 스크립트(main.js)에서 쓰는 공용 전송 함수 */
   window.bpmTrack = function (name, params) {
+    metaSend(name, params);
+
     if (!READY) {
       if (window.console && console.debug) {
         console.debug('[bpmTrack] ' + name, params || {});
