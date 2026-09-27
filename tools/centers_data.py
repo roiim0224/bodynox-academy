@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-V = '89'
+V = '90'
 IG = 'https://www.instagram.com/bpm.bodynox'
 KAKAO = 'https://pf.kakao.com/_xexjbUT/chat'
 LINE_BANGKOK = 'https://lin.ee/ONPqSSP'
@@ -78,7 +78,7 @@ def blank(n=1):
     return [dict(name=None, role=None, field=None, photo=None, career=None, intro=None) for _ in range(n)]
 
 CENTERS = [
-    dict(slug='seoul', seo='바디녹스 서울역센터 — 서울 용산구 남산트윈시티. BPM 지도자 교육 주말반과 화·목 주중반이 진행되는 본원으로, 임용호·홍지영 마스터가 직접 지도합니다.', name='바디녹스 서울역센터', short='서울역센터',
+    dict(slug='seoul', seo='바디녹스 서울역센터 — 서울 용산구 남산트윈시티. BPM 지도자 교육 주말반·화목 주중반이 진행되는 본원입니다.', name='바디녹스 서울역센터', short='서울역센터',
          flag='kr', country='대한민국', note='주말반 · 주중반 진행',
          address='서울특별시 용산구 한강대로 366, 남산트윈시티 B동 1층 105호',
          phone='010-2364-4499', masters=[YONGHO, JIYOUNG], photos=10),
@@ -96,7 +96,7 @@ CENTERS = [
     dict(slug='jakarta', hidden=True, seo='자카르타센터 — 인도네시아 자카르타에서 국내와 동일한 BPM 커리큘럼으로 진행되는 해외 교육센터입니다.', name='자카르타센터', short='자카르타센터',
          flag='id', country='인도네시아', note='주말반 진행',
          address=None, phone=None, masters=blank(3), photos=10),
-    dict(slug='bangkok', seo='BPM Bangkok Center — 태국 방콕 O-NES Tower, BTS 나나역 직결. 홍한나 마스터가 담당하는 BPM 지도자 교육 해외 교육센터입니다.', name='BPM Bangkok Center', short='BPM Bangkok Center',
+    dict(slug='bangkok', seo='BPM Bangkok Center — 태국 방콕 O-NES Tower, BTS 나나역 직결. 홍한나 마스터가 담당하는 해외 교육센터.', name='BPM Bangkok Center', short='BPM Bangkok Center',
          flag='th', country='태국', note='주말반 진행',
          address=('4th Floor, O-NES Tower, 6 Sukhumvit 6 Alley, Khlong Toei, '
                   'Bangkok 10110, Thailand'
