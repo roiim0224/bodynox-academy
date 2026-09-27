@@ -103,7 +103,20 @@ LINE (방콕)         lin.ee/ONPqSSP
 인스타그램           instagram.com/bpm.bodynox  (전 페이지 공통, 센터별 계정 쓰지 않음)
 ```
 
-맞춤 이벤트 `apply_click` · `form_submit` · `payment_click` 이 심겨 있다.
+맞춤 이벤트 5개가 심겨 있다. 전부 `analytics.js` 의 `bpmTrack()` 을 거친다.
+
+| 이벤트 | 시점 | 주요 매개변수 |
+|---|---|---|
+| `apply_click` | 다른 페이지 → `apply.html` 링크 클릭 | `spot` 버튼 위치 · `label` |
+| `form_open` | 신청서 열기 | `method` 임베드 / 새 창 |
+| `form_submit` | 신청서 제출(추정) | `sec` 체류초 · `loads` iframe 로드수 |
+| `payment_click` | 토스 결제 링크 클릭 | `intake` 기수 |
+| `contact_click` | 상담 채널 클릭 | `channel` 카카오톡 / LINE / 전화 / 인스타그램 |
+
+**`form_submit` 은 추정값이다.** 구글폼이 다른 도메인이라 제출을 읽을 수 없어,
+iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec` 이 지나치게
+짧거나 `loads` 가 3 이상이면 오탐일 수 있다. **구글폼 실제 응답 수와 대조해야
+이 숫자를 신뢰할 수 있다.** 새 창으로 나간 제출은 원리상 잡히지 않는다.
 
 ---
 
@@ -158,7 +171,10 @@ LINE (방콕)         lin.ee/ONPqSSP
 
 **사용자 직접**
 - 도메인 갱신 — **bodynox.com 만료 2026-11-11**
-- GA4 주요 이벤트 별표 3개 (이벤트가 최근 활동 목록에 오른 뒤)
+- GA4 주요 이벤트 별표 — `form_submit` · `payment_click` · `contact_click`
+  (이벤트가 최근 활동 목록에 오른 뒤). `channel` · `spot` · `method` 는
+  맞춤 측정기준으로 등록해야 보고서에서 쪼개 볼 수 있다
+- 구글폼 응답 수와 GA4 `form_submit` 수 대조 (추정 정확도 확인)
 - 환급 계산 방식 법률 검토 (결석일 공제 · 온라인 즉시 공제가 법정 기준보다 불리할 소지)
 
 **보류**

@@ -98,6 +98,35 @@
       return;
     }
 
+    /* ---------- 상담 채널 클릭 ----------
+       카카오톡 · LINE · 전화 · 인스타그램을 channel 로 구분해 한 이벤트로 보냅니다.
+       80기(방콕)는 결제 링크가 없어 상담이 유일한 전환 지점이므로 특히 필요합니다. */
+    var channel = null;
+    if (a.protocol === 'tel:') channel = '전화';
+    else if (a.href.indexOf('pf.kakao.com') !== -1) channel = '카카오톡';
+    else if (a.href.indexOf('lin.ee') !== -1) channel = 'LINE';
+    else if (a.href.indexOf('instagram.com') !== -1) channel = '인스타그램';
+
+    if (channel) {
+      window.bpmTrack('contact_click', {
+        channel: channel,
+        spot: spotOf(a),
+        page_path: location.pathname
+      });
+      return;
+    }
+
+    /* ---------- 신청서를 새 창에서 열기 ----------
+       임베드가 아니라 새 창으로 나가면 제출을 감지할 방법이 없습니다.
+       이 경로로 몇 명이 빠져나갔는지만이라도 남깁니다. */
+    if (a.href.indexOf('docs.google.com/forms') !== -1) {
+      window.bpmTrack('form_open', {
+        method: '새 창',
+        page_path: location.pathname
+      });
+      return;
+    }
+
     /* ---------- 교육 신청 버튼 클릭 ---------- */
     if (/\/apply\.html(?:[?#]|$)/.test(a.pathname + a.search + a.hash) &&
         !/\/apply\.html$/.test(location.pathname)) {

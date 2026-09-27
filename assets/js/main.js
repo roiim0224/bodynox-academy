@@ -283,6 +283,13 @@
       show(panel);
       mount();
       panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      // 도달(apply_click) 과 제출(form_submit) 사이의 단계를 채웁니다.
+      if (window.bpmTrack) {
+        window.bpmTrack('form_open', {
+          method: '임베드',
+          page_path: location.pathname
+        });
+      }
     }
 
     function closeForm() {
@@ -301,7 +308,11 @@
       if (window.bpmTrack) {
         window.bpmTrack('form_submit', {
           form: '참가신청서',
-          page_path: location.pathname
+          page_path: location.pathname,
+          // 아래 둘은 추정 정확도를 검증하기 위한 값입니다.
+          // sec 이 비정상적으로 짧거나 loads 가 3 이상이면 오탐일 수 있습니다.
+          sec: Math.round((Date.now() - mountedAt) / 1000),
+          loads: loadCount
         });
       }
     }
