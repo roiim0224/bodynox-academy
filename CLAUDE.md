@@ -94,7 +94,8 @@ HTML 을 고쳤으면 태그 짝과 JSON-LD 파싱을 확인한다. 과거에 �
 ```
 GA4                G-C2H8VEPDVC        (assets/js/analytics.js)
 네이버 애널리틱스     1221efa822081f0     (같은 파일)
-메타 픽셀            1758009831974932    (같은 파일 · 데이터 세트명 BPM Academy Website)
+메타 픽셀            2370021590146728    (같은 파일 · BPM 코리아 소유 데이터 세트)
+메타 비즈니스        BPM 코리아 556954782452067 · 광고계정 bpm.bpdynox 1650184236333483
 구글 서치콘솔        소유확인 파일 google505bdee7b06aae57.html
 네이버 서치어드바이저  index.html 의 naver-site-verification 메타
 토스 결제 79기       buy.tosspayments.com/products/IGBnLL5poY
