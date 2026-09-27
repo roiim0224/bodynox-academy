@@ -188,19 +188,22 @@ iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec`
 - 강북센터가 구글에 색인돼 있었다 → 서치콘솔 **삭제 요청 접수**(임시, 6개월).
   `noindex` 는 붙기 전에 수집된 탓이다. 서초·자카르타는 색인 안 됐다
 - 81기 검색 스니펫이 '13~18시' 옛 값이었다 → **색인 생성 요청**
-- **홈페이지·신청·Foundation·서울역센터 4개가 색인돼 있지 않았다**
-  ('발견됨, 현재 색인이 생성되지 않음' — 크롤링 이력 자체가 없음) → 4개 모두
-  색인 생성 요청. 며칠 뒤 `site:bpm.bodynox.com` 으로 반영을 확인할 것
-
-남은 것
-- **인스타그램 바이오 링크에 UTM 이 없다.** 링크 자체는 걸려 있으나
-  `rel="noreferrer"` 라 유입이 전부 `(direct)` 로 섞인다. 아래로 바꾸면 분리된다
+- **인스타그램 바이오 링크에 UTM 을 붙였다** (2026-09-27)
 
   ```
   https://bpm.bodynox.com/?utm_source=instagram&utm_medium=bio
   ```
 
-  게시물·스토리에서 유도할 때는 `utm_medium` 을 `post` · `story` 로 바꿔 쓴다
+  게시물·스토리에서 유도할 때는 `utm_medium` 을 `post` · `story` 로 바꿔 쓴다.
+  링크 수정은 **인스타그램 앱에서만** 된다. 데스크톱 웹은 칸이 잠겨 있다.
+  인스타그램이 클릭 시점에 `utm_content=link_in_bio` 와 `fbclid` 를 덧붙인다.
+  유효한 `utm_medium` 이 없으면 제멋대로 `utm_medium=social` 을 넣으므로
+  오타가 나면 조용히 값이 바뀐다. 실제로 한 번 겪었다(`utm_medium-bio`)
+- **홈페이지·신청·Foundation·서울역센터 4개가 색인돼 있지 않았다**
+  ('발견됨, 현재 색인이 생성되지 않음' — 크롤링 이력 자체가 없음) → 4개 모두
+  색인 생성 요청. 며칠 뒤 `site:bpm.bodynox.com` 으로 반영을 확인할 것
+
+남은 것
 - 본사 사이트 개선 → `docs/www-bodynox-seo.md` 참고. 담당자 전달용으로 써 뒀다
 - GA4 에 옛 주소(`/bodynox-academy/…`, github.io) 데이터가 섞여 있다
 
