@@ -231,10 +231,10 @@ iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec`
 - 계정 준비 **완료** — 페이지 `바디녹스 아카데미`(313350112858743) · 인스타 `@bpm.bodynox` ·
   광고계정 `bpm.bpdynox`(1650184236333483, KRW·한국시간) · 데이터 세트 할당 · 결제수단(Visa) ·
   사업자 정보. **광고를 올릴 수 있는 상태다.**
-- **남은 것은 `bodynox.com` 도메인 인증뿐이다.** 루트 도메인만 인증할 수 있어
-  `bpm.bodynox.com` 으로는 우회가 안 된다. DNS 가 Cloudflare 이고 계정 접근이 없어
-  본사 사이트 담당자에게 TXT 추가를 요청해 둔 상태다 → `docs/www-bodynox-seo.md` 5번.
-  **없어도 광고는 돌아간다.** iOS 전환이 일부 덜 잡히는 정도다
+- **`bodynox.com` 도메인 인증 완료 (2026-09-28).** 닷네임코리아 관리 화면에서 TXT 를
+  넣으면 Cloudflare 응답에 그대로 반영된다 — 네임서버가 Cloudflare 를 가리키지만
+  등록업체 패널이 실제로 연결돼 있다. Cloudflare 계정은 필요 없었다.
+  TXT 값 `facebook-domain-verification=cabt1wmpojkopwg786i8gym8vceirl`
 - 자동 페이지 정보 수집(`Automatically include more detailed page and product info`)은
   껐다. 자동 고급 매칭 · 코드 없는 자동 이벤트도 꺼져 있다.
   사이트가 메타로 보내는 것은 심어 둔 이벤트 6개뿐이며 개인정보처리방침과 일치한다
