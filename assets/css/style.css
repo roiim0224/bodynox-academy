@@ -2853,3 +2853,46 @@ img.photo-slot--wide::after { content: none; }
   }
   .appform textarea { min-height: 0; }
 }
+
+/* ---------- 지원서 인쇄 (apply-82) ---------- */
+.print-head { display: none; }
+
+@media print {
+  /* 지원서만 인쇄되도록 안내 · 체크리스트 · 제출 · 푸터를 제외한다 */
+  body.apply82 .subhero,
+  body.apply82 #checklist,
+  body.apply82 #submit,
+  body.apply82 .site-footer,
+  body.apply82 #form .section__head { display: none !important; }
+
+  body.apply82 .section { padding-block: 0 !important; }
+
+  body.apply82 .print-head {
+    display: block;
+    border-bottom: 2px solid var(--c-accent);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+  .print-head__brand {
+    font-size: 9px;
+    letter-spacing: .2em;
+    color: var(--c-accent);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .print-head__title {
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0 0 6px;
+  }
+  .print-head__meta {
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--c-text-mid);
+    margin: 0;
+  }
+
+  /* 입력한 내용이 잘리지 않게 한다 */
+  body.apply82 .appform textarea { overflow: visible !important; }
+  body.apply82 .appform__set { page-break-inside: avoid; }
+}
