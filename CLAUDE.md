@@ -304,6 +304,7 @@ iframe 의 두 번째 load 를 제출로 본다(`main.js` 의 `finish()`). `sec`
 
 ```
 tools/build-centers.py        센터 페이지 생성
+tools/build-rss.py            rss.xml 생성 (네이버 서치어드바이저 제출용)
 tools/centers_data.py         센터 · 마스터 데이터, 캐시 버전 V
 tools/import-center-photos.py 센터 사진 변환
 tools/go-live-domain.sh       도메인 전환 (DNS 확인 후에만 CNAME 커밋)
