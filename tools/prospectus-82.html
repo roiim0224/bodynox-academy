@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>BPM 지도자 과정 대학생 장학기수 모집요강</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 16mm; }
+
+  :root {
+    --accent: #BE0A4C;
+    --text: #2B2024;
+    --mid: #5F5254;
+    --line: #DED4CE;
+    --tint: #FAF6F3;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Apple SD Gothic Neo", -apple-system, "Noto Sans KR", sans-serif;
+    font-size: 10pt;
+    line-height: 1.65;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover {
+    border-bottom: 2.5pt solid var(--accent);
+    padding-bottom: 14pt;
+    margin-bottom: 20pt;
+  }
+  .cover__brand {
+    font-size: 8.5pt;
+    letter-spacing: .22em;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 10pt;
+  }
+  .cover__title {
+    font-size: 19pt;
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 0 0 8pt;
+    letter-spacing: -.01em;
+  }
+  .cover__sub { font-size: 10.5pt; color: var(--mid); margin: 0 0 12pt; }
+  .cover__pills { display: flex; flex-wrap: wrap; gap: 5pt; }
+  .pill {
+    border: .7pt solid var(--accent);
+    color: var(--accent);
+    border-radius: 20pt;
+    padding: 2.5pt 9pt;
+    font-size: 8.5pt;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight: 800;
+    margin: 20pt 0 8pt;
+    padding-left: 7pt;
+    border-left: 3pt solid var(--accent);
+    line-height: 1.3;
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 10pt;
+    font-weight: 700;
+    margin: 13pt 0 5pt;
+    color: var(--mid);
+    break-after: avoid;
+  }
+  p { margin: 0 0 7pt; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6pt 0 8pt;
+    font-size: 9pt;
+    break-inside: auto;
+  }
+  th, td {
+    border: .5pt solid var(--line);
+    padding: 5.5pt 7pt;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  th {
+    background: var(--tint);
+    font-weight: 700;
+    font-size: 8.5pt;
+    letter-spacing: .02em;
+  }
+  td.k { background: #FCFAF9; font-weight: 600; width: 23%; }
+  td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  th.num { text-align: right; }
+  tr.total td { background: #FDF3F6; font-weight: 700; }
+  tr { break-inside: avoid; }
+
+  ul { margin: 0 0 8pt; padding-left: 14pt; }
+  li { margin-bottom: 3.5pt; }
+
+  .note {
+    font-size: 8.5pt;
+    color: var(--mid);
+    line-height: 1.6;
+    margin: 4pt 0 8pt;
+  }
+  .box {
+    background: var(--tint);
+    border: .5pt solid var(--line);
+    border-radius: 3pt;
+    padding: 9pt 11pt;
+    margin: 8pt 0;
+    break-inside: avoid;
+  }
+  .box strong { color: var(--accent); }
+
+  .price-hero {
+    display: flex;
+    align-items: baseline;
+    gap: 10pt;
+    margin: 4pt 0 8pt;
+  }
+  .price-hero__amt { font-size: 17pt; font-weight: 800; color: var(--accent); }
+  .price-hero__note { font-size: 9pt; color: var(--mid); }
+
+  .sec { break-inside: avoid; }
+  .pb { break-before: page; }
+
+  footer.doc {
+    margin-top: 22pt;
+    padding-top: 9pt;
+    border-top: .5pt solid var(--line);
+    font-size: 8pt;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <p class="cover__brand">BODYNOX ACADEMY · BPM INSTRUCTOR TRAINING</p>
+  <h1 class="cover__title">BPM(Bodynox Pilates Method) 지도자 과정<br />2026–2027 겨울방학 대학생 장학기수 모집요강</h1>
+  <p class="cover__sub">바디녹스 아카데미 | BODYNOX ACADEMY</p>
+  <div class="cover__pills">
+    <span class="pill">12주 주중 집중반</span>
+    <span class="pill">선발 인원 10명</span>
+    <span class="pill">교육비 40% 장학 지원</span>
+    <span class="pill">수료자 전원 채용 연계</span>
+  </div>
+</div>
+
+<h2>1. 모집 개요</h2>
+<table>
+  <tr><td class="k">과정명</td><td>BPM(Bodynox Pilates Method) 지도자 과정 — 대학생 장학기수</td></tr>
+  <tr><td class="k">주관</td><td>바디녹스 아카데미 (Bodynox International)</td></tr>
+  <tr><td class="k">모집 대상</td><td>국내 대학(전문대 포함) 재학생 — 재학증명서 제출자</td></tr>
+  <tr><td class="k">선발 인원</td><td>10명 (예비 후보 3명 별도)</td></tr>
+  <tr><td class="k">교육 기간</td><td>2026년 12월 7일(월) ~ 2027년 2월 26일(금), 12주 주중 집중반</td></tr>
+  <tr><td class="k">교육 장소</td><td>바디녹스 서울역 교육센터 (남산 트윈시티)</td></tr>
+  <tr><td class="k">교육비</td><td>정규 3,984,000원 → 장학 40%(1,593,600원) 지원 → <strong>본인 부담 2,390,400원</strong> (3회 분납, 회당 796,800원)</td></tr>
+  <tr><td class="k">취득 자격</td><td>BPM 지도자 자격 (등록 민간자격증) — Foundation · Intermediate 단계별 취득</td></tr>
+  <tr><td class="k">수료 후 진로</td><td>수료 조건 충족자 전원 제휴 학원·기관 스튜디오 채용 연계 (학기 중 학업 병행 수업 가능)</td></tr>
+  <tr><td class="k">접수 기간</td><td>2026년 10월 5일(월) ~ 11월 13일(금) 18:00</td></tr>
+</table>
+
+<h2>2. 과정 소개</h2>
+<p>본 과정은 바디녹스 아카데미가 6개월 정규 과정으로 운영하는 BPM 지도자 교육의 전체 커리큘럼(Foundation 및 Intermediate)을 겨울방학 12주 주중 집중반으로 편성한 대학생 전용 기수입니다. 강의 시간만 압축한 과정이 아니라, 정규 과정과 동일한 기준의 실습 지도(practice teaching)와 견습(apprenticeship)을 12주 안에 포함하여 운영합니다.</p>
+<p>BPM은 운동학(kinesiology)과 해부학(anatomy)에 근거한 증거기반(evidence-based) 필라테스 지도 방법론으로, lever arm과 moment arm에 기반한 운동역학적 프로그램 구성, 운동 사슬에 따른 동작 선택과 진행(progression), 그리고 회원 개개인의 움직임을 관찰하고 교정하는 큐잉(cueing) 능력을 지도자의 핵심 역량으로 정의합니다.</p>
+
+<h3>2-1. 커리큘럼 구성</h3>
+<table>
+  <thead><tr><th style="width:18%">단계</th><th style="width:22%">구성</th><th>주요 내용</th></tr></thead>
+  <tbody>
+    <tr><td>Foundation</td><td>Fundamental + Module 1~3</td><td>BPM 원리와 호흡(breathing), 척추 분절(spinal articulation)과 골반 안정성(pelvic stability), 매트·리포머 기초 레퍼토리, 관찰과 큐잉의 기본</td></tr>
+    <tr><td>Intermediate</td><td>Module 4~7</td><td>중급 레퍼토리와 Progression · Regression 설계, 운동 사슬 기반 프로그램 구성, 그룹수업 운영과 개인별 조정</td></tr>
+    <tr><td>실습 · 견습</td><td>12주 전 기간 병행</td><td>스튜디오 정규 수업 참관(observation), 보조 지도, 실습 지도(practice teaching), 자기 수련(self-practice) 기록</td></tr>
+  </tbody>
+</table>
+
+<h3>2-2. 운영 방식</h3>
+<ul>
+  <li>주중 집중반: 월 · 화 · 목 · 금 · 09:00~18:00 — 총 128시간 (대면 강의)</li>
+  <li>교육 기간 중 그룹수업 20회 수강권 포함 (교육생 본인의 움직임 훈련 및 수업 관찰용)</li>
+  <li>공휴일(12/25, 1/1, 설 연휴)은 휴강하며, 해당 주차 일정은 개강 시 안내하는 세부 시간표에 따릅니다</li>
+</ul>
+
+<h3>2-3. 교육일정표</h3>
+<table>
+  <thead><tr><th style="width:16%">구분</th><th style="width:30%">과정</th><th>일정</th><th style="width:20%">시간</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="5">Foundation</td><td>펀더멘탈</td><td>12월 7일 · 8일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>모듈 1</td><td>12월 10일 · 11일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>모듈 2</td><td>12월 14일 · 15일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>모듈 3</td><td>12월 17일 · 18일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>시험 (이론 5문항 + 실기)</td><td>12월 22일</td><td>10시</td></tr>
+    <tr><td rowspan="5">Intermediate</td><td>모듈 4</td><td>2027년 1월 4일 · 5일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>모듈 5</td><td>1월 7일 · 8일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>모듈 6</td><td>1월 11일 · 12일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>모듈 7</td><td>1월 14일 · 15일</td><td>09시 ~ 18시</td></tr>
+    <tr><td>최종시험 (이론 50문항 + 실기 + 프로그램 디자인)</td><td>1차 2월 12일 · 2차 2월 26일</td><td>10시</td></tr>
+  </tbody>
+</table>
+<p class="note">대면 강의는 모듈당 2일(1일 8시간)씩 총 16일 128시간이며, 전부 월 · 화 · 목 · 금에 배치되어 있습니다. 강의가 끝난 뒤에도 실습 · 견습은 12주 전 기간 병행됩니다.</p>
+
+<h2 class="pb">3. 지원 자격</h2>
+<p>다음 다섯 가지 요건을 모두 충족해야 지원할 수 있으며, 하나라도 충족하지 못하면 평가 단계로 진행되지 않습니다.</p>
+<table>
+  <thead><tr><th style="width:8%">번호</th><th>필수 요건</th></tr></thead>
+  <tbody>
+    <tr><td>①</td><td>국내 대학(전문대 포함) 재학생으로 재학증명서를 제출할 수 있는 자. 2027학년도 1학기 재학 예정자 및 2027년 2월 졸업 예정자 모두 지원 가능</td></tr>
+    <tr><td>②</td><td>12주 주중 집중반 전 일정에 출석할 수 있는 자 (출석 확약서 제출)</td></tr>
+    <tr><td>③</td><td>2027년 3월 이후 학기 중 주 1회 이상 수업 진행이 가능한 시간대를 사전에 명시할 수 있는 자</td></tr>
+    <tr><td>④</td><td>신체활동 참여 전 사전 검사(PAR-Q+, Physical Activity Readiness Questionnaire for Everyone)에서 의사 소견이 필요한 항목이 없는 자, 또는 해당 시 의사 소견서를 제출한 자</td></tr>
+    <tr><td>⑤</td><td>교육비 결제 주체(보호자 등)의 동의서를 제출한 자</td></tr>
+  </tbody>
+</table>
+<p class="note">※ 전공, 필라테스 경험, 운동 경력은 지원 자격 요건이 아닙니다. 체육 · 재활 관련 전공이나 운동 경험은 평가 단계에서 가산 요소로만 반영됩니다.</p>
+
+<h2>4. 교육비 및 장학 지원</h2>
+
+<h3>4-1. 바디녹스 아카데미 대학생 장학 프로그램</h3>
+<p>본 기수의 장학 지원은 바디녹스 아카데미가 자체 재원으로 운영하는 프로그램입니다. 선발된 10명 전원에게 정규 교육비의 40%를 지원하며, 장학 지원은 최종 선발 시 확정됩니다.</p>
+
+<div class="price-hero">
+  <span class="price-hero__amt">본인 부담 2,390,400원</span>
+  <span class="price-hero__note">3회 분납 · 회당 796,800원</span>
+</div>
+
+<table>
+  <thead><tr><th style="width:30%">항목</th><th class="num" style="width:22%">금액</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>정규 교육비</td><td class="num">3,984,000원</td><td>Foundation + Intermediate 전 과정, 온라인 강좌 · 교재 · 그룹수업 20회 포함</td></tr>
+    <tr><td>장학 지원 (40%)</td><td class="num">− 1,593,600원</td><td>바디녹스 아카데미 대학생 장학 프로그램</td></tr>
+    <tr class="total"><td>본인 부담 교육비</td><td class="num">2,390,400원</td><td>3회 분납</td></tr>
+  </tbody>
+</table>
+
+<h3>4-2. 항목별 단가 (장학 특별가)</h3>
+<p class="note">장학 40%가 적용된 대학생 장학기수 특별가입니다. 모든 항목에 같은 비율이 적용되며, 합계는 본인 부담 교육비와 일치합니다.</p>
+<table>
+  <thead><tr><th style="width:32%">항목</th><th style="width:20%">수량</th><th class="num">정규 금액</th><th class="num">장학 특별가</th></tr></thead>
+  <tbody>
+    <tr><td>대면 강의</td><td>16일 (128시간)</td><td class="num">3,194,000원</td><td class="num">1,916,400원<br /><span class="note">1일 119,775원</span></td></tr>
+    <tr><td>온라인 강좌 (교재 포함)</td><td>1식</td><td class="num">210,000원</td><td class="num">126,000원</td></tr>
+    <tr><td>교재</td><td>9권</td><td class="num">180,000원</td><td class="num">108,000원<br /><span class="note">권당 12,000원</span></td></tr>
+    <tr><td>그룹수업</td><td>20회</td><td class="num">400,000원</td><td class="num">240,000원<br /><span class="note">회당 12,000원</span></td></tr>
+    <tr class="total"><td>합계</td><td></td><td class="num">3,984,000원</td><td class="num">2,390,400원</td></tr>
+  </tbody>
+</table>
+
+<h3>4-3. 납부 일정</h3>
+<table>
+  <thead><tr><th style="width:14%">회차</th><th>납부 기한</th><th class="num" style="width:26%">금액</th></tr></thead>
+  <tbody>
+    <tr><td>1차</td><td>2026년 11월 28일(토) 오리엔테이션 당일</td><td class="num">796,800원 (등록 확정)</td></tr>
+    <tr><td>2차</td><td>2027년 1월 5일(화)</td><td class="num">796,800원</td></tr>
+    <tr><td>3차</td><td>2027년 2월 1일(월)</td><td class="num">796,800원</td></tr>
+  </tbody>
+</table>
+<p class="note">
+  ※ 1차 납부로 등록이 확정되며, 기한 내 미납 시 예비 후보에게 순번대로 선발 자격이 승계됩니다.<br />
+  ※ 환불은 바디녹스 아카데미 수강약관의 환불 규정에 따릅니다. 중도 포기 시 장학 지원분에 대한 별도 환수는 없습니다.<br />
+  ※ 대면 강의는 정원이 정해진 기수제 수업으로, 결석한 교육일도 진행된 것으로 보아 공제합니다.
+</p>
+
+<h2 class="pb">5. 선발 절차 및 일정</h2>
+<table>
+  <thead><tr><th style="width:22%">단계</th><th style="width:26%">일정</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td>① 서류 접수</td><td>10월 5일(월) ~ 11월 13일(금)</td><td>온라인 지원서 제출 및 재학증명서 등 서류 업로드</td></tr>
+    <tr><td>② 서류 심사 발표</td><td>11월 18일(수)</td><td>정원의 2배수(20명 내외) 통과자 개별 통보</td></tr>
+    <tr><td>③ 면접</td><td>11월 21일(토), 반일</td><td>서울역 교육센터에서 개별 면접 진행</td></tr>
+    <tr><td>④ 최종 발표</td><td>11월 25일(수)</td><td>최종 선발 10명 및 예비 후보 3명 개별 통보</td></tr>
+    <tr><td>⑤ 오리엔테이션</td><td>11월 28일(토)</td><td>보호자 동반 참석 가능. 과정 구성 · 채용 연계 조건 · 수강약관 안내 후 1차 납부</td></tr>
+    <tr><td>⑥ 개강</td><td>12월 7일(월)</td><td>12주 주중 집중반 시작</td></tr>
+  </tbody>
+</table>
+<p class="note">※ 실기 · 면접 일정에 참석하지 못할 경우 사전 협의를 통해 1회에 한해 일정을 조정할 수 있습니다.</p>
+
+<h2>6. 평가 기준 (100점)</h2>
+<p>본 선발은 현재의 운동 수행 능력이 아니라 12주 과정을 완주하고 3월부터 현장에서 지도할 수 있는 잠재력을 평가합니다. 평가는 2인 이상의 평가자가 독립적으로 채점한 뒤 합산하며, 외모 · 체형 · 나이 · 출신 학교는 평가 항목에 포함되지 않습니다.</p>
+<table>
+  <thead><tr><th style="width:12%">영역</th><th style="width:24%">항목</th><th class="num" style="width:10%">배점</th><th>평가 내용</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="3">서류</td><td>지원 동기 · 진로 계획서</td><td class="num">30</td><td>3월 이후 수업 병행 계획의 구체성 (지역, 시간대, 목표)</td></tr>
+    <tr><td>학사 일정 적합성</td><td class="num">10</td><td>2027-1학기 예상 시간표상 수업 가능 시간 확보 여부</td></tr>
+    <tr><td>관련 경험</td><td class="num">10</td><td>체육 · 재활 전공, 운동 경험, 대면 서비스 경험 (가산 요소)</td></tr>
+    <tr><td rowspan="3">면접</td><td>미니 티칭</td><td class="num">20</td><td>실기에서 배운 동작 하나를 평가자에게 말로 설명 · 지도 — 언어 전달력과 관찰력</td></tr>
+    <tr><td>완주 가능성</td><td class="num">20</td><td>12주 동안의 이탈 요인(아르바이트, 계절학기, 해외 일정 등) 점검</td></tr>
+    <tr><td>배치 적합성</td><td class="num">10</td><td>제휴 스튜디오의 3월 수요와 지원자의 지역 · 시간대 · 성향 부합 여부</td></tr>
+    <tr class="total"><td>합계</td><td></td><td class="num">100</td><td></td></tr>
+  </tbody>
+</table>
+<p class="note">※ 실기 평가는 별도의 사전 준비가 필요하지 않습니다. 움직이기 편한 복장과 양말(그립삭스 권장)을 지참하시면 됩니다.</p>
+
+<h2>7. 수료 조건 및 자격 취득</h2>
+<table>
+  <tr><td class="k">출석</td><td>전체 교육 시간의 90% 이상 출석</td></tr>
+  <tr><td class="k">실습 · 견습</td><td>배정된 참관 · 보조 지도 · 실습 지도 시간 전량 이수 및 자기 수련 기록 제출</td></tr>
+  <tr><td class="k">자격시험</td><td>Foundation 자격시험 및 Intermediate 자격시험 합격</td></tr>
+  <tr><td class="k">자격증</td><td>BPM 지도자 자격 (등록 민간자격증) — Foundation 합격 시 1차 자격증 발급, Intermediate 합격 시 상위 자격증 발급</td></tr>
+</table>
+<p class="note">※ 자격시험 불합격 시 재시험 기회가 1회 제공되며, 재시험 일정은 별도 안내합니다.</p>
+
+<h2 class="pb">8. 채용 연계</h2>
+<p>수료 조건을 충족한 교육생 전원에게 바디녹스 제휴 학원 및 기관 스튜디오의 강사 채용을 연계합니다. 연계는 2027년 3월 학기 시작과 동시에 학업을 병행하며 수업을 진행할 수 있는 형태(파트타임 강사)로 이루어지며, 지원자가 사전에 명시한 수업 가능 지역과 시간대를 기준으로 배치합니다.</p>
+<ul>
+  <li><strong>연계 대상</strong> — 수료 조건(출석 90% 이상, 실습 · 견습 전량 이수, 자격시험 합격)을 충족한 교육생 전원</li>
+  <li><strong>연계 시점</strong> — 2027년 3월 학기 시작 시점 (개별 배치 일정은 수료 후 안내)</li>
+  <li><strong>연계 기관</strong> — 바디녹스 광화문 · 서울역 스튜디오, 바디녹스 제휴 학원, 협력 기관 스튜디오</li>
+</ul>
+<p class="note">※ 채용 연계는 수료 조건을 충족한 교육생에 한해 제공되며, 근로 조건은 각 채용 기관과 교육생 간의 별도 계약에 따릅니다.</p>
+
+<h2>9. 제출 서류</h2>
+<table>
+  <thead><tr><th style="width:8%">번호</th><th style="width:38%">서류</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>지원서 (소정 양식)</td><td>지원 동기 및 진로 계획서 포함</td></tr>
+    <tr><td>2</td><td>재학증명서</td><td>접수일 기준 1개월 이내 발급분</td></tr>
+    <tr><td>3</td><td>출석 확약서 (소정 양식)</td><td>12주 전 일정 출석 확약</td></tr>
+    <tr><td>4</td><td>2027-1학기 수업 가능 시간표</td><td>학기 중 주 1회 이상 가능 시간대 표시</td></tr>
+    <tr><td>5</td><td>PAR-Q+ 사전 검사지 (소정 양식)</td><td>해당 시 의사 소견서 첨부</td></tr>
+    <tr><td>6</td><td>교육비 결제 주체 동의서 (소정 양식)</td><td>보호자 서명</td></tr>
+  </tbody>
+</table>
+<div class="box">
+  <p style="margin:0"><strong>지원서 · 출석 확약서 · 수업 가능 시간표 · 결제 주체 동의서는 온라인 지원서 한 장에 모두 들어 있습니다.</strong><br />
+  bpm.bodynox.com/apply-82.html 에서 작성해 PDF로 저장한 뒤, 재학증명서와 함께 카카오톡 채널로 보내주세요. PAR-Q+ 검사지 양식은 카카오톡 채널로 보내드립니다.</p>
+</div>
+<p class="note">※ 허위 서류 제출 시 선발이 취소되며, 이미 지원된 장학 혜택은 회수될 수 있습니다.</p>
+
+<h2>10. 접수 방법 및 문의</h2>
+<table>
+  <tr><td class="k">접수 방법</td><td>온라인 접수 — bpm.bodynox.com/apply-82.html</td></tr>
+  <tr><td class="k">접수 기간</td><td>2026년 10월 5일(월) ~ 11월 13일(금) 18:00</td></tr>
+  <tr><td class="k">문의</td><td>카카오톡 채널 · 인스타그램 @bpm.bodynox · 010-2364-4499</td></tr>
+  <tr><td class="k">1:1 상담</td><td>전 과정 설명이 필요한 경우 1:1 Zoom 교육 상담을 신청할 수 있습니다 (보호자 동반 가능)</td></tr>
+</table>
+
+<h2>11. 유의사항</h2>
+<ul>
+  <li>본 장학 프로그램은 바디녹스 아카데미가 자체 운영하며, 외부 기관의 후원이나 정부 지원 사업과 무관합니다.</li>
+  <li>장학 지원은 최종 선발과 동시에 확정되며, 선발 인원이 10명에 미달하더라도 기준 점수 미달자를 추가 선발하지 않습니다.</li>
+  <li>교육 일정과 장소는 스튜디오 운영 사정에 따라 일부 조정될 수 있으며, 변경 시 사전에 안내합니다.</li>
+  <li>제출된 개인정보는 선발 및 교육 운영 목적으로만 이용하며, 선발 종료 후 미선발자의 서류는 관련 법령에 따라 파기합니다.</li>
+  <li>본 요강에 명시되지 않은 사항은 바디녹스 아카데미 수강약관 및 운영 규정에 따릅니다.</li>
+</ul>
+
+<div class="box">
+  <p style="margin:0 0 4pt"><strong>민간자격 표시사항</strong></p>
+  <p style="margin:0; font-size:8.5pt; line-height:1.65">
+    자격명 바디녹스 필라테스 지도자 3급, 2급 · 등록번호 2022-004967 · 자격관리(운영)기관 (주)바디녹스인터내셔널 ·
+    총비용 2,390,400원(796,800원 × 3회 분납) · 연락처 010-2364-4499<br />
+    상기 자격은 <strong>자격기본법 제17조 제2항</strong>에 따라 등록한 민간자격으로, 국가로부터 공인받은 자격이 아닙니다.
+    민간자격 등록은 해당 자격이 국가로부터 인정받았음을 의미하지 않습니다.
+  </p>
+</div>
+
+<footer class="doc">
+  (주)바디녹스인터내셔널 · 대표 임용호 · 사업자등록번호 884-81-01065<br />
+  서울특별시 용산구 한강대로 366, 남산트윈시티 B동 1층 105호 · 교육문의 010-2364-4499 · bpm.bodynox.com
+</footer>
+
+</body>
+</html>
+
+<!--
+  이 파일은 82기 대학생 장학기수 모집요강 PDF 의 조판 원본입니다.
+  내용을 고친 뒤 아래 명령으로 PDF 를 다시 만들어 저장소에 덮어씁니다.
+
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless --disable-gpu --no-pdf-header-footer \
+    --print-to-pdf="assets/docs/bpm-82-prospectus.pdf" \
+    "file://$PWD/tools/prospectus-82.html"
+
+  금액을 고쳤으면 recruit-82.html · apply-82.html · index.html 의 값도 함께 맞출 것.
+-->
