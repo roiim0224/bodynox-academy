@@ -15,10 +15,35 @@
 (function () {
   'use strict';
 
+  /* ---------- 로컬 미리보기에서는 보내지 않는다 ----------
+     127.0.0.1 · localhost · file:// 로 연 페이지는 GA4 · 네이버 · 메타로
+     아무것도 전송하지 않습니다. 개발 중 미리보기가 실제 방문자 수에 섞이면
+     숫자를 셀 때마다 그 날짜를 빼야 합니다. 2026-09-29 에 실제로 겪었습니다.
+
+     픽셀을 점검할 때는 주소 뒤에 ?bpmdebug=1 을 붙이세요.
+     그 탭에서는 전송되며, 같은 탭에서 페이지를 옮겨 다녀도 유지됩니다.
+     (메타 Test Events 로 확인할 때 이 방법을 씁니다) */
+  var LOCAL = /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(location.hostname) ||
+              /\.(local|test|localhost)$/.test(location.hostname) ||
+              location.protocol === 'file:';
+
+  var DEBUG = /[?&]bpmdebug=1(&|$)/.test(location.search);
+  try {
+    if (DEBUG) sessionStorage.setItem('bpmdebug', '1');
+    else DEBUG = sessionStorage.getItem('bpmdebug') === '1';
+  } catch (e) { /* 시크릿 모드 등 — 주소의 값만 본다 */ }
+
+  var SEND = !LOCAL || DEBUG;
+
+  if (LOCAL && window.console && console.info) {
+    console.info('[bpm] 로컬 미리보기 — 분석 이벤트를 ' +
+      (SEND ? '전송합니다 (bpmdebug)' : '전송하지 않습니다. 켜려면 ?bpmdebug=1'));
+  }
+
   var GA_ID = 'G-C2H8VEPDVC';
 
   /* 자리표시자면 아무것도 하지 않는다 */
-  var READY = /^G-[A-Z0-9]{6,12}$/.test(GA_ID) && GA_ID.indexOf('XXXX') === -1;
+  var READY = SEND && /^G-[A-Z0-9]{6,12}$/.test(GA_ID) && GA_ID.indexOf('XXXX') === -1;
 
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
@@ -38,7 +63,7 @@
      analytics.naver.com > 설정 > 사이트 등록 에서 받은 wa 값입니다. */
   var NAVER_ID = '1221efa822081f0';
 
-  if (/^[0-9a-f]{10,24}$/i.test(NAVER_ID)) {
+  if (SEND && /^[0-9a-f]{10,24}$/i.test(NAVER_ID)) {
     var n = document.createElement('script');
     n.async = true;
     n.src = 'https://wcs.pstatic.net/wcslog.js';
@@ -76,7 +101,7 @@
     '950102224820335'
   ].filter(function (id) { return /^[0-9]{15,16}$/.test(id); });
 
-  var META_READY = META_IDS.length > 0;
+  var META_READY = SEND && META_IDS.length > 0;
 
   if (META_READY) {
     /* 메타가 제공하는 기본 스니펫 — fbq 스텁을 먼저 만들고 라이브러리는 비동기로 받습니다 */
